@@ -1,0 +1,18 @@
+Total products: 128/466
+Total Time: 17.24s
+{'"Gift" in product': 0, 'Sold out': 169, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 169}
+
+
+30/01/2020 22:14:15
+Total products: 172/595
+Total Time: 25.51s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 423}
+
+
+04/02/2020 16:40:02
+Added display name for vendor and collection
+Total products: 172/595
+Total Time: 36.53s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 423}
+
+

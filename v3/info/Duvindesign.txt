@@ -1,0 +1,114 @@
+Total products: 86/103
+Total Time: 6.65s
+{'"Gift" in product': 0, 'Sold out': 14, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 0}
+
+
+Total products: 128/158
+Total Time: 8.94s
+{'"Gift" in product': 0, 'Sold out': 17, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+30/01/2020 21:50:22
+Total products: 144/157
+Total Time: 17.23s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 18:04:46
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 15.44s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 18:09:33
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 10.36s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 18:17:37
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 10.01s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 21:03:39
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 12.45s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 21:05:54
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 9.54s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 21:42:23
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 15.12s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 22:10:26
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 10.85s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 22:13:05
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 10.88s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 22:14:50
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 11.43s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 22:19:56
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 12.19s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 22:20:52
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 11.22s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+03/02/2020 22:32:53
+Added display name for vendor and collection
+Total products: 101/104
+Total Time: 6.8s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 0}
+
+
+03/02/2020 22:33:26
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 9.18s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+04/02/2020 20:12:35
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 11.41s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
