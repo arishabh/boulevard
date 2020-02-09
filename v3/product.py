@@ -51,7 +51,7 @@ class Product:
         self.ship = var['requires_shipping']
         # self.sku = var['sku']
         self.cap = var['compare_at_price']
-        self.link = url + 'products/'+self.handle+"?variant="
+        self.link = url + 'products/'+self.handle
 
         self.img_urls = [img['src'] for img in d['images']]
         self.img_pos = [img['position'] for img in d['images']]

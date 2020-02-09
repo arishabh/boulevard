@@ -14,7 +14,8 @@ from PIL import Image
 
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
-        self.note = 'Welcome to V3\n'+note
+        self.note = 'Corrected Inseam'
+        if note: self.note += '\n' + note
         self.name = name
         self.dname = display_name
         self.cats = cats
@@ -42,7 +43,7 @@ class Shopify():
                     self.d = d
                     err, self.reason = self.check()
                     if err: continue
-                    self.colors, self.fits, self.pos, self.all_sizes = self.get_color_fit(d)
+                    self.get_color_fit()
 
                     for color in self.colors:
                         if color != '' and self.pos[color] == [0]: continue
@@ -71,46 +72,62 @@ class Shopify():
         print("Total products: " + str(self.tot) + "/" + str(sum(list(self.reason.values())) + self.tot) + "\nTotal Time: " + str(round(time() - self.start, 2)) + 's')
         if sum(list(self.reason.values())) != 0: print(str(self.reason))
 
-    def get_color_fit(self, d):
-        colors = []
-        all_sizes = []
-        fits = []
+    def get_color_fit(self):
+        self.colors = []
+        self.fits = []
         waist = []
         length = []
-        for option in d['options']:
+        inseam = []
+        title = []
+        for option in self.d['options']:
             if (option['name'].lower() == 'color'):
-                colors = option['values']
+                self.colors = option['values']
             elif ('size' in option['name'].lower()):
-                all_sizes = option['values']
+                self.all_sizes = option['values']
             elif (option['name'].lower() == 'fit' or option['name'] == "Style"):
-                fits = option['values']
+                self.fits = option['values']
             elif ('waist' in option['name'].lower()):
                 waist = option['values']
+                self.all_sizes = []
             elif ('length' in option['name'].lower()):
                 length = option['values']
+            elif ('Inseam' == option['name']):
+                inseam = option['values']
+            elif ('Title' == option['name']):
+                if('title' not in option['values'][0].lower()):
+                    title = option['values']
             else:
                 print("Couldnt find list for option", option['name'], "with info", option['values'])
-        if length == []: length = ['']
+        if inseam and length: 
+            print("Inseam and Length, both have values :(")
+            print("Inseam:", inseam, "Length:", length)
+        if not length and not inseam: length = ['']
+        if (length or inseam) and not waist and self.all_sizes: waist, self.all_sizes = self.all_sizes, []
+        if not self.all_sizes and title:
+            print('Title with value', title, 'was replaced with sizes')
+            self.all_sizes = title
         for w in waist:
             for l in length:
-                all_sizes.append(w + " / " + l) if l != '' else all_sizes.append(w)
-        if all_sizes == []: all_sizes = ['OS']
-        if len(fits) < 2: fits = ['']
-        pos = {}
-        if len(colors) > 2:
-            for color in colors: pos[color] = []
-            for v in d['variants']:
-                color = list(filter(lambda x: x in v['title'], colors))[0]
+                self.all_sizes.append(w + "x" + l) if l != '' else self.all_sizes.append(w)
+            for i in inseam:
+                self.all_sizes.append(w + "x" + i + ' (Inseam)')
+        if self.all_sizes == []: self.all_sizes = ['OS']
+        if len(self.fits) < 2: self.fits = ['']
+        self.pos = {}
+        if len(self.colors) > 2:
+            for color in self.colors: self.pos[color] = []
+            for v in self.d['variants']:
+                color = list(filter(lambda x: x in v['title'], self.colors))[0]
                 if v['featured_image'] == None:
-                    pos[color] = [0]
+                    self.pos[color] = [0]
                     continue
-                if v['featured_image']['position'] not in pos[color]:
-                    pos[color].append(v['featured_image']['position'])
-            pos = {k: v for k, v in sorted(pos.items(), key=lambda item: item[1])}
-            if all(map(lambda x: x == [0], list(pos.values()))):
-                for p in pos:
-                    pos[p] = range(20)
-            lims = list(pos.values())
+                if v['featured_image']['position'] not in self.pos[color]:
+                    self.pos[color].append(v['featured_image']['position'])
+            self.pos = {k: v for k, v in sorted(self.pos.items(), key=lambda item: item[1])}
+            if all(map(lambda x: x == [0], list(self.pos.values()))):
+                for p in self.pos:
+                    self.pos[p] = range(20)
+            lims = list(self.pos.values())
             for i in range(len(lims)):
                 try:
                     if (len(lims[i]) != 1): continue
@@ -120,9 +137,7 @@ class Shopify():
                     for _ in range(5):
                         lims[i].append(lims[i][-1] + 1)
         else:
-            colors = ['']
-        
-        return colors, fits, pos, all_sizes
+            self.colors = ['']
 
     def add_color(self, color):
         self.prod.title += ' - ' + color
@@ -142,30 +157,38 @@ class Shopify():
         avail_sizes = []
         for v in self.d['variants']:
             if color in v['title'] and fit in v['title']:
-                if (color or fit) and not avail_sizes: self.prod.link += str(v["id"])
+                if (color or fit) and not avail_sizes: self.prod.link += "?variant=" + str(v["id"])
+                print(self.all_sizes, v['title'])
                 if self.all_sizes == ['OS']: size = 'OS'
-                else: size = list(filter(lambda x: all(map(lambda a: a in v['title'], x.split('/'))), self.all_sizes))[0]
+                else: size = list(filter(lambda x: all(map(lambda a: a.split()[0].strip() in v['title'].split(), x.split('x'))), self.all_sizes))
+                print(size)
+                if not size: continue
+                if size != 'OS': size = size[0]
                 if v['available'] and size not in avail_sizes: avail_sizes.append(size)
         proc_all_sizes = self.proc_size_li(self.all_sizes)
         proc_avail_sizes = self.proc_size_li(avail_sizes)
         self.prod.write_sizes(proc_all_sizes, proc_avail_sizes)
 
-    def proc_size(self, size):
-        size = size.upper().replace('-', '')
+    def proc_size(self, inp):
+        size = inp.upper().replace('-', '')
+        if inp.strip()[-1] == ')': size = inp.split('(')[0]
         if 'O/S' in size or 'OS' in size or ('O' in size and 'S' in size): return 'OS'
-        elif 'XS' in size or 'XSMALL' in size: return 'XS'
-        elif 'S' in size or 'SMALL' in size: return 'S'
-        elif 'M' in size or 'MEDIUM' in size: return 'M'
-        elif 'L' in size or 'LARGE' in size: return 'L'
-        elif 'XL' in size or 'XLARGE' in size: return 'XL'
-        elif 'XXL' in size or 'XXLARGE' in size: return 'XXL'
-        elif 'XXXL' in size or 'XXXLARGE' in size: return 'XXXL'
+        elif 'XS' == size or 'XSMALL' in size: return 'XS'
+        elif 'S' == size or 'SMALL' in size: return 'S'
+        elif 'M' == size or 'MEDIUM' in size: return 'M'
+        elif 'XXXL' == size or 'XXXLARGE' in size: return 'XXXL'
+        elif 'XXL' == size or 'XXLARGE' in size: return 'XXL'
+        elif 'XL' == size or 'XLARGE' in size: return 'XL'
+        elif 'L' == size or 'LARGE' in size: return 'L'
         else:
             #print("Size not found for", size)
-            return size
+            return inp
 
     def proc_size_li(self, li):
-        return list(set(map(self.proc_size, li)))
+        result = []
+        re = list(map(self.proc_size, li))
+        [result.append(x) for x in re if x not in result]
+        return result
 
     def check(self):
         out = 'gift' in self.d['title'].lower() or 'gift' in self.d['handle'].lower() or 'gift' in self.d['product_type']

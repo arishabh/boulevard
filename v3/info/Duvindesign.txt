@@ -112,3 +112,19 @@ Total Time: 11.41s
 {'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
 
 
+09/02/2020 13:51:41
+Corrected Inseam
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 10.32s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+
+09/02/2020 13:52:37
+Corrected Inseam
+Added display name for vendor and collection
+Total products: 144/157
+Total Time: 10.85s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 3, 'Repeated product': 10}
+
+

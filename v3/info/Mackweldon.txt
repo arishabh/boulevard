@@ -24,3 +24,11 @@ Total Time: 47.4s
 {'"Gift" in product': 3, 'Sold out': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 5}
 
 
+08/02/2020 12:00:54
+Welcome to V3
+Added display name for vendor and collection
+Total products: 432/483
+Total Time: 35.63s
+{'"Gift" in product': 3, 'No images': 43, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 5}
+
+

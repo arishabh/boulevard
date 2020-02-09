@@ -1,3 +1,5 @@
+from shopify import Shopify
+
 NAME = 'lamadeclothing'
 DISPLAY_NAME = 'LAmade'
 cats = ['mens', 'mens-tees']
