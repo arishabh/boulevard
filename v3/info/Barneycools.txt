@@ -44,3 +44,27 @@ Total Time: 10.66s
 {'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 23}
 
 
+10/02/2020 12:46:53
+Corrected Inseam
+Has sizes in the Title option
+Total products: 154/190
+Total Time: 12.65s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 23, 'Sold out': 13}
+
+
+10/02/2020 12:54:02
+Corrected Inseam
+Has sizes in the Title option
+Total products: 162/190
+Total Time: 17.56s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 23, 'Sold out': 5}
+
+
+10/02/2020 12:54:28
+Corrected Inseam
+Has sizes in the Title option
+Total products: 162/190
+Total Time: 15.37s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 23, 'Sold out': 5}
+
+

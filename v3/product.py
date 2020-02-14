@@ -39,7 +39,7 @@ class Product:
         self.cost_item = ''
 
         self.vendor = display_name+'-men'
-        self.collection = display_name+'-men'
+        # self.collection = display_name+'-men'
         self.title = d['title']
         self.handle = d['handle']
         self.type = d['product_type'].lower()
@@ -59,8 +59,8 @@ class Product:
         self.tags = [gen_clean(d['vendor']), gen_clean(c)] + gen_clean_li(d['tags'])
 
     def get_first_row(self):
-        self.tags = ', '.join(self.tags)
-        out = [self.collection, self.handle, self.title, self.body, self.vendor, self.type, self.tags, self.published, self.option1_name, self.option1_value, self.option2_name, self.link, self.option3_name]
+        tags = ', '.join(self.tags)
+        out = [self.collection, self.handle, self.title, self.body, self.vendor, self.type, tags, self.published, self.option1_name, self.option1_value, self.option2_name, self.link, self.option3_name]
         out += [self.option3_value, self.sku, self.weight, self.inv_tracker, self.policy, self.full_service, self.price, self.cap, self.ship, self.tax, self.barcode, self.img_urls[0], self.img_pos[0]]
         out += [self.img_alt_text, self.gift_card, self.seo_title, self.seo_desc] + self.google_ship + [self.var_img, self.var_weight_unit, self.variant_tax, self.cost_item]
         return [out]
@@ -75,7 +75,7 @@ class Product:
         return(self.get_first_row() + self.get_other_rows())
 
     def write_sizes(self, all_sizes, avail_sizes):
-        self.option3_value = ','.join(all_sizes) + '|' + ','.join(avail_sizes)
+        self.option3_value = ','.join(avail_sizes)
 
     def __eq__(self, other):
         return (self.title == other.title and self.handle == other.handle)

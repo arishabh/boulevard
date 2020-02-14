@@ -16,3 +16,27 @@ Total Time: 4.09s
 {'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0}
 
 
+09/02/2020 23:39:48
+Corrected Inseam
+Added display name for vendor and collection
+Total products: 172/210
+Total Time: 3.86s
+{'"Gift" in product': 0, 'No images': 3, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 35}
+
+
+09/02/2020 23:53:12
+Corrected Inseam
+Added display name for vendor and collection
+Total products: 172/210
+Total Time: 4.69s
+{'"Gift" in product': 0, 'No images': 3, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 35}
+
+
+12/02/2020 17:32:36
+Corrected Inseam
+Added display name for vendor and collection
+Total products: 252/313
+Total Time: 6.03s
+{'"Gift" in product': 0, 'No images': 8, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 53}
+
+

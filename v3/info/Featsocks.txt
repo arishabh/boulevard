@@ -16,3 +16,51 @@ Total Time: 5.1s
 {'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 12, 'Women product': 0, 'Repeated product': 0}
 
 
+09/02/2020 21:23:34
+Corrected Inseam
+Final upload
+Total products: 164/176
+Total Time: 5.6s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 12, 'Women product': 0, 'Repeated product': 0, 'Sold out': 0}
+
+
+09/02/2020 21:24:30
+Corrected Inseam
+Final upload
+Total products: 164/176
+Total Time: 2.95s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 12, 'Women product': 0, 'Repeated product': 0, 'Sold out': 0}
+
+
+09/02/2020 21:25:57
+Corrected Inseam
+Final upload
+Total products: 164/176
+Total Time: 2.91s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 12, 'Women product': 0, 'Repeated product': 0, 'Sold out': 0}
+
+
+09/02/2020 21:26:15
+Corrected Inseam
+Final upload
+Total products: 164/176
+Total Time: 4.19s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 12, 'Women product': 0, 'Repeated product': 0, 'Sold out': 0}
+
+
+09/02/2020 22:01:50
+Corrected Inseam
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 51/63
+Total Time: 5.65s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 12, 'Women product': 0, 'Repeated product': 0, 'Sold out': 0}
+
+
+09/02/2020 22:02:38
+Corrected Inseam
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 51/176
+Total Time: 3.55s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 12, 'Women product': 0, 'Repeated product': 113, 'Sold out': 0}
+
+

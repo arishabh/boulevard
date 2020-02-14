@@ -2,7 +2,7 @@ from shopify import Shopify
 
 NAME = 'raen'
 DISPLAY_NAME = 'Raen'
-cats = ['sunglasses']
+cats = ['sunglasses', 'eyeglasses']
 shipping = 'FREE RETURNS + 2 DAY SHIPPING ON U.S. ORDERS $150+'.lower()
 note = 'Added display name for vendor and collection'
 

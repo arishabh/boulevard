@@ -11,10 +11,12 @@ from creds import col_url
 from urllib.request import urlopen
 from PIL import Image
 
+sizes_debug = True
+
 
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
-        self.note = 'Corrected Inseam'
+        self.note = 'Now collections add all tags if there in multiple collections'
         if note: self.note += '\n' + note
         self.name = name
         self.dname = display_name
@@ -24,7 +26,7 @@ class Shopify():
         self.file_name = self.name.title() + 'Inventory.csv'
         self.url = ['https://' + self.name + '.com/collections/', '/products.json?limit=250&page=']
         self.link = self.url[0].split('collections')[0]
-        self.reason = {'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0}
+        self.reason = {'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 0}
         self.prods = []
         self.csv_path = 'csv/'
         self.info_path = 'info/'
@@ -34,10 +36,11 @@ class Shopify():
 
     def run(self):
         self.start = time()
+        old_tot = 0
         for c in self.cats:
+            self.c = c
             ind = 1
-            self.data = json.loads(bs(get(self.url[0] + c + self.url[1] + '1').content, 'html.parser').getText())[
-                'products']  # For each category in given in above, get its json
+            self.data = json.loads(bs(get(self.url[0] + c + self.url[1] + '1').content, 'html.parser').getText())['products']  # For each category in given in above, get its json
             while self.data:
                 for d in self.data:
                     self.d = d
@@ -58,21 +61,25 @@ class Shopify():
 
                             if self.check_error(): continue 
 
-                            self.process_sizes(color, fit)
+
+                            if not self.process_sizes(color, fit): continue
 
                             details = clean_text(d['body_html'])  # See the body_html from the product and clean it
                             self.prod.body = make_body(details, self.size, self.shipping)
             
                             self.tot += 1
                             self.prods.append(self.prod)
-                            self.rows += self.prod.get_rows()
                 ind += 1
                 self.data = json.loads(bs(get(self.url[0] + c + self.url[1] + str(ind)).content, 'html.parser').getText())['products']
             if ind == 1: print("No products in category " + c)
+            if old_tot == self.tot: print("No new products added in category", c)
+            old_tot = self.tot
+        for p in self.prods: self.rows += p.get_rows()
         print("Total products: " + str(self.tot) + "/" + str(sum(list(self.reason.values())) + self.tot) + "\nTotal Time: " + str(round(time() - self.start, 2)) + 's')
         if sum(list(self.reason.values())) != 0: print(str(self.reason))
 
     def get_color_fit(self):
+        self.all_sizes = []
         self.colors = []
         self.fits = []
         waist = []
@@ -80,7 +87,7 @@ class Shopify():
         inseam = []
         title = []
         for option in self.d['options']:
-            if (option['name'].lower() == 'color'):
+            if (option['name'].lower() == 'color' or option['name'] == 'Colour'):
                 self.colors = option['values']
             elif ('size' in option['name'].lower()):
                 self.all_sizes = option['values']
@@ -108,10 +115,11 @@ class Shopify():
             self.all_sizes = title
         for w in waist:
             for l in length:
-                self.all_sizes.append(w + "x" + l) if l != '' else self.all_sizes.append(w)
+                self.all_sizes.append(w + " / " + l) if l != '' else self.all_sizes.append(w)
             for i in inseam:
-                self.all_sizes.append(w + "x" + i + ' (Inseam)')
+                self.all_sizes.append(w + " / " + i + ' (Inseam)')
         if self.all_sizes == []: self.all_sizes = ['OS']
+        if ' / ' not in self.all_sizes[0]: self.all_sizes = [x.upper() for x in self.all_sizes]
         if len(self.fits) < 2: self.fits = ['']
         self.pos = {}
         if len(self.colors) > 2:
@@ -155,31 +163,37 @@ class Shopify():
     
     def process_sizes(self, color, fit):
         avail_sizes = []
+        done = False
         for v in self.d['variants']:
             if color in v['title'] and fit in v['title']:
-                if (color or fit) and not avail_sizes: self.prod.link += "?variant=" + str(v["id"])
-                print(self.all_sizes, v['title'])
+                if (color or fit) and not done: self.prod.link += "?variant=" + str(v["id"]); done = True
+                if sizes_debug: print(self.all_sizes, v['title'].upper().split(' / '))
                 if self.all_sizes == ['OS']: size = 'OS'
-                else: size = list(filter(lambda x: all(map(lambda a: a.split()[0].strip() in v['title'].split(), x.split('x'))), self.all_sizes))
-                print(size)
+                else: size = list(filter(lambda x: all(map(lambda a: a.strip().upper() in v['title'].upper().split(' / '), x.replace(' / ', 'x').replace('(Inseam)', '').split('x'))), self.all_sizes))
+                if sizes_debug: print(size)
                 if not size: continue
-                if size != 'OS': size = size[0]
+                if size != 'OS': size = size[-1]
                 if v['available'] and size not in avail_sizes: avail_sizes.append(size)
+        if not avail_sizes: 
+            self.reason['Sold out'] += 1
+            return False
         proc_all_sizes = self.proc_size_li(self.all_sizes)
         proc_avail_sizes = self.proc_size_li(avail_sizes)
+        if sizes_debug: print(self.prod.title, proc_avail_sizes, '\n')
         self.prod.write_sizes(proc_all_sizes, proc_avail_sizes)
+        return True
 
     def proc_size(self, inp):
         size = inp.upper().replace('-', '')
         if inp.strip()[-1] == ')': size = inp.split('(')[0]
-        if 'O/S' in size or 'OS' in size or ('O' in size and 'S' in size): return 'OS'
-        elif 'XS' == size or 'XSMALL' in size: return 'XS'
-        elif 'S' == size or 'SMALL' in size: return 'S'
-        elif 'M' == size or 'MEDIUM' in size: return 'M'
-        elif 'XXXL' == size or 'XXXLARGE' in size: return 'XXXL'
-        elif 'XXL' == size or 'XXLARGE' in size: return 'XXL'
-        elif 'XL' == size or 'XLARGE' in size: return 'XL'
-        elif 'L' == size or 'LARGE' in size: return 'L'
+        if 'O/S' in size or 'OS' in size or 'ONE SIZE' == size: return 'OS'
+        elif 'XS' == size or 'XSMALL' == size: return 'XS'
+        elif 'S' == size or 'SMALL' == size: return 'S'
+        elif 'M' == size or 'MEDIUM' == size: return 'M'
+        elif 'XXXL' == size or 'XXXLARGE' == size: return 'XXXL'
+        elif 'XXL' == size or 'XXLARGE' == size or 'DOUBLE EXTRA LARGE' == size: return 'XXL'
+        elif 'XL' == size or 'XLARGE' == size or 'EXTRA LARGE' == size: return 'XL'
+        elif 'L' == size or 'LARGE' == size: return 'L'
         else:
             #print("Size not found for", size)
             return inp
@@ -213,21 +227,22 @@ class Shopify():
             writer = csv.writer(csvfile)
             writer.writerows(self.rows)
 
-    def post_collections(self):
-        if not self.cats or self.cats == ['']: 
-            image = self.img_finder(None)
-            data = {"smart_collection":{"title": self.dname+'-men:All', "rules":[{"column":"vendor", "relation":"contains", "condition":self.name+"-men"}], "image":{"src":image}}}
+    def post_collections(self, names):
+        image = self.img_finder(None)
+        data = {"smart_collection":{"title": self.dname+'-men:All', "rules":[{"column":"vendor", "relation":"contains", "condition":self.dname+"-men"}], "body_html":"1"}}
+        a = post(col_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
+        # print(a.content)
+        if self.cats == ['']: return
+        for i,n in enumerate(names):
+            c = gen_clean(self.cats[i])
+            image = self.img_finder(c)
+            if not image: 
+                print("No images for", c)
+                continue
+            data = {"smart_collection":{"title": self.dname+'-men:'+n, "rules":[{"column":"vendor", "relation":"contains", "condition":self.dname+"-men"}, {"column":"tag", "relation":"equals", "condition":c}], "disjunctive": False, "body_html":str(i+2)}} 
             a = post(col_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
-            print(a.content)
-            return
-
-        for c in self.cats:
-            image = self.img_finder(gen_clean(c))
-            print(image)
-            if not image: continue
-            data = {"smart_collection":{"title": self.dname+'-men:'+self.fancy(c), "rules":[{"column":"vendor", "relation":"contains", "condition":self.name+"-men"}, {"column":"tag", "relation":"equals", "condition":gen_clean(c)}], "disjunctive": False, "image":{"src":image, "alt":gen_clean(c)}}} 
-            a = post(col_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
-            print(a.content)
+            # print(a.content)
+        print("All collections posted")
 
     def img_finder(self, find):
         url = None
@@ -235,7 +250,7 @@ class Shopify():
             reader = csv.reader(f)
             for r in reader:
                 if r[6] == ''or r[6] == 'Tags': continue
-                if find and find != r[6].split(',')[1].strip(): continue
+                if find and find not in r[6].split(', '): continue
                 if('.jpg' in r[24]):
                     url = r[24].split('.jpg')[0]+'_350x350.jpg' + r[24].split('.jpg')[1]
                     return url
@@ -244,7 +259,8 @@ class Shopify():
                     return url
 
     def check_error(self):    
-        if (self.prod in self.prods):
+        if (self.prod in self.prods) or (self.name == 'featsocks' and [a for a in self.prods if a.title==self.prod.title]):
+            self.prods[self.prods.index(self.prod)].tags.append(gen_clean(self.c))
             self.reason['Repeated product'] += 1
             return True
         if not self.prod.img_urls: 

@@ -32,3 +32,11 @@ Total Time: 35.63s
 {'"Gift" in product': 3, 'No images': 43, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 5}
 
 
+10/02/2020 17:38:29
+Corrected Inseam
+Final Upload
+Total products: 405/483
+Total Time: 34.84s
+{'"Gift" in product': 3, 'No images': 43, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 4, 'Sold out': 28}
+
+
