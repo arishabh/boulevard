@@ -7,7 +7,7 @@ shipping = 'Free shipping. Free returns'
 note = 'Changed the URl (with https)'
 
 brand = Shopify(NAME, DISPLAY_NAME, cats, shipping, note)
-brand.url = ['https://' + NAME + '.cc/', '/products.json?limit=250&page=']
+brand.url = ['https://www.' + NAME + '.cc', '/products.json?limit=250&page=']
 brand.run()
 brand.write_csv()
 brand.write_info()

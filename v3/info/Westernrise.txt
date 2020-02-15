@@ -156,3 +156,11 @@ Total Time: 15.35s
 {'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 86, 'Sold out': 8}
 
 
+13/02/2020 20:12:26
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 92/187
+Total Time: 14.44s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 86, 'Sold out': 8}
+
+

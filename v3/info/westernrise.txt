@@ -1,7 +1,0 @@
-07/02/2020 19:22:49
-Welcome to V3
-Total products: 99/113
-Total Time: 5.57s
-{'"Gift" in product': 1, 'Sold out': 0, 'Tags empty': 2, 'Women product': 0, 'Repeated product': 11}
-
-

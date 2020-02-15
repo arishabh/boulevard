@@ -11,7 +11,7 @@ from creds import col_url
 from urllib.request import urlopen
 from PIL import Image
 
-sizes_debug = True
+sizes_debug = False
 
 
 class Shopify():
@@ -40,7 +40,7 @@ class Shopify():
         for c in self.cats:
             self.c = c
             ind = 1
-            self.data = json.loads(bs(get(self.url[0] + c + self.url[1] + '1').content, 'html.parser').getText())['products']  # For each category in given in above, get its json
+            self.data = json.loads(bs(get(self.url[0] + c + self.url[1] + '1').content, 'html.parser').getText())['products']
             while self.data:
                 for d in self.data:
                     self.d = d
@@ -60,11 +60,10 @@ class Shopify():
                                 self.add_fit(fit)
 
                             if self.check_error(): continue 
-
-
                             if not self.process_sizes(color, fit): continue
 
-                            details = clean_text(d['body_html'])  # See the body_html from the product and clean it
+                            if not d['body_html']: details = ''
+                            else: details = clean_text(d['body_html'])
                             self.prod.body = make_body(details, self.size, self.shipping)
             
                             self.tot += 1
@@ -87,7 +86,7 @@ class Shopify():
         inseam = []
         title = []
         for option in self.d['options']:
-            if (option['name'].lower() == 'color' or option['name'] == 'Colour'):
+            if (option['name'].lower() == 'color' or option['name'] == 'Colour' or option['name'].lower() == 'colors'):
                 self.colors = option['values']
             elif ('size' in option['name'].lower()):
                 self.all_sizes = option['values']
@@ -169,7 +168,7 @@ class Shopify():
                 if (color or fit) and not done: self.prod.link += "?variant=" + str(v["id"]); done = True
                 if sizes_debug: print(self.all_sizes, v['title'].upper().split(' / '))
                 if self.all_sizes == ['OS']: size = 'OS'
-                else: size = list(filter(lambda x: all(map(lambda a: a.strip().upper() in v['title'].upper().split(' / '), x.replace(' / ', 'x').replace('(Inseam)', '').split('x'))), self.all_sizes))
+                else: size = list(filter(lambda x: all(map(lambda a: a.strip().upper() in v['title'].upper().split(' / '), x.replace('(Inseam)', '').split(' / '))), self.all_sizes))
                 if sizes_debug: print(size)
                 if not size: continue
                 if size != 'OS': size = size[-1]
@@ -205,7 +204,7 @@ class Shopify():
         return result
 
     def check(self):
-        out = 'gift' in self.d['title'].lower() or 'gift' in self.d['handle'].lower() or 'gift' in self.d['product_type']
+        out = 'gift' in self.d['title'].lower() or 'gift' in self.d['handle'].lower() or 'gift' in self.d['product_type'] or 'cart-on' in self.d['title']
         if out: self.reason['"Gift" in product'] += 1
         out1 = False
         # out1 = not any([v['available'] for v in d['variants']])
@@ -259,8 +258,11 @@ class Shopify():
                     return url
 
     def check_error(self):    
-        if (self.prod in self.prods) or (self.name == 'featsocks' and [a for a in self.prods if a.title==self.prod.title]):
+        if (self.prod in self.prods):
             self.prods[self.prods.index(self.prod)].tags.append(gen_clean(self.c))
+            self.reason['Repeated product'] += 1
+            return True
+        if ((self.name == 'featsocks' or self.name == 'tenthousand') and [a for a in self.prods if a.title==self.prod.title]): 
             self.reason['Repeated product'] += 1
             return True
         if not self.prod.img_urls: 

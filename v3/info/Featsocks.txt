@@ -64,3 +64,27 @@ Total Time: 3.55s
 {'"Gift" in product': 0, 'No images': 0, 'Tags empty': 12, 'Women product': 0, 'Repeated product': 113, 'Sold out': 0}
 
 
+13/02/2020 20:23:12
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 47/132
+Total Time: 2.99s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 10, 'Women product': 0, 'Repeated product': 74, 'Sold out': 1}
+
+
+13/02/2020 20:23:58
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 47/132
+Total Time: 2.57s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 10, 'Women product': 0, 'Repeated product': 74, 'Sold out': 1}
+
+
+13/02/2020 21:20:10
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 47/132
+Total Time: 6.22s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 10, 'Women product': 0, 'Repeated product': 74, 'Sold out': 1}
+
+
