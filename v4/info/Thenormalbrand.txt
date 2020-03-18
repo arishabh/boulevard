@@ -1,0 +1,59 @@
+Total products: 330/890
+Total Time: 36.7s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 560}
+
+
+30/01/2020 22:19:20
+Total products: 335/905
+Total Time: 27.66s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 570}
+
+
+14/02/2020 16:51:56
+Now collections add all tags if there in multiple collections
+Added display name for vendor and collection
+Total products: 282/939
+Total Time: 43.29s
+{'"Gift" in product': 0, 'No images': 6, 'Tags empty': 0, 'Women product': 72, 'Repeated product': 538, 'Sold out': 41}
+
+
+14/02/2020 16:53:59
+Now collections add all tags if there in multiple collections
+Added display name for vendor and collection
+Total products: 282/944
+Total Time: 42.42s
+{'"Gift" in product': 0, 'No images': 6, 'Tags empty': 4, 'Women product': 73, 'Repeated product': 538, 'Sold out': 41}
+
+
+14/02/2020 16:55:26
+Now collections add all tags if there in multiple collections
+Added display name for vendor and collection
+Total products: 282/944
+Total Time: 43.59s
+{'"Gift" in product': 0, 'No images': 6, 'Tags empty': 4, 'Women product': 73, 'Repeated product': 538, 'Sold out': 41}
+
+
+26/02/2020 10:30:11
+Now collections add all tags if there in multiple collections
+Added display name for vendor and collection
+Total products: 355/906
+Total Time: 41.63s
+{'"Gift" in product': 0, 'No images': 14, 'Tags empty': 0, 'Women product': 46, 'Repeated product': 449, 'Sold out': 42}
+
+
+02/03/2020 16:05:29
+Now collections add all tags if there in multiple collections
+Added display name for vendor and collection
+Total products: 416/1147
+Total Time: 50.52s
+{'"Gift" in product': 0, 'No images': 38, 'Tags empty': 0, 'Women product': 42, 'Repeated product': 610, 'Sold out': 41}
+
+
+04/03/2020 21:28:18
+Now collections add all tags if there in multiple collections
+Added display name for vendor and collection
+Total products: 412/1145
+Total Time: 48.01s
+{'"Gift" in product': 0, 'No images': 38, 'Tags empty': 0, 'Women product': 42, 'Repeated product': 604, 'Sold out': 49}
+
+

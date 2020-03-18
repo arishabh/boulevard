@@ -1,0 +1,11 @@
+Total products: 195/277
+Total Time: 16.53s
+{'"Gift" in product': 0, 'Sold out': 26, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 56}
+
+
+30/01/2020 22:22:29
+Total products: 204/260
+Total Time: 12.06s
+{'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 56}
+
+
