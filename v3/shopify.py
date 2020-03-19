@@ -13,7 +13,6 @@ from PIL import Image
 
 sizes_debug = False
 
-
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
         self.note = 'Now collections add all tags if there in multiple collections'
@@ -25,10 +24,10 @@ class Shopify():
         self.size = 'Click buy for more sizing information.'
         self.file_name = self.name.title() + 'Inventory.csv'
         self.url = ['https://' + self.name + '.com/collections/', '/products.json?limit=250&page=']
-        self.link = self.url[0].split('collections')[0]
+        self.link = self.url[0].split('collections')[0] 
         self.reason = {'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 0}
         self.prods = []
-        self.csv_path = 'csv/'
+        self.csv_path = 'new/'
         self.info_path = 'info/'
         self.headers  = [['Collection', 'Handle', 'Title', 'Body (HTML)', 'Vendor', 'Type', 'Tags', 'Published', 'Option1 Name', 'Option1 Value', 'Option2 Name', 'Option2 Value', 'Option3 Name', 'Option3 Value', 'Variant SKU', 'Variant Grams', 'Variant Inventory Tracker', 'Variant Inventory Policy', 'Variant Fulfillment Service', 'Variant Price', 'Variant Compare At Price', 'Variant Requires Shipping', 'Variant Taxable', 'Variant Barcode', 'Image Src', 'Image Position', 'Image Alt Text', 'Gift Card', 'SEO Title', 'SEO Description', 'Google Shopping / Google selfuct Category', 'Google Shopping / Gender', 'Google Shopping / Age Group', 'Google Shopping / MPN', 'Google Shopping / AdWords Grouping', 'Google Shopping / AdWords Labels', 'Google Shopping / Condition', 'Google Shopping / Custom Product', 'Google Shopping / Custom Label 0', 'Google Shopping / Custom Label 1', 'Google Shopping / Custom Label 2', 'Google Shopping / Custom Label 3', 'Google Shopping / Custom Label 4', 'Variant Image', 'Variant Weight Unit', 'Variant Tax Code', 'Cost per item']]
         self.rows = self.headers
@@ -184,7 +183,8 @@ class Shopify():
 
     def proc_size(self, inp):
         size = inp.upper().replace('-', '')
-        if inp.strip()[-1] == ')': size = inp.split('(')[0]
+        if inp.strip()[-1] == ')': size = inp.split('(')[0] #To handle (inseam) in size
+        if self.name == 'twillory' and len(inp.split(' / ')) > 2: inp = inp.split(' / ')[0] + ' / ' + inp.split(' / ')[-1]
         if 'O/S' in size or 'OS' in size or 'ONE SIZE' == size: return 'OS'
         elif 'XS' == size or 'XSMALL' == size: return 'XS'
         elif 'S' == size or 'SMALL' == size: return 'S'
@@ -204,12 +204,12 @@ class Shopify():
         return result
 
     def check(self):
-        out = 'gift' in self.d['title'].lower() or 'gift' in self.d['handle'].lower() or 'gift' in self.d['product_type'] or 'cart-on' in self.d['title']
+        out = 'gift' in self.d['title'].lower() or 'gift' in self.d['handle'].lower() or 'gift' in self.d['product_type'] or 'cart-on' in self.d['title'] or not self.d['product_type'] or float(self.d['variants'][0]['price']) == 0.0
         if out: self.reason['"Gift" in product'] += 1
         out1 = False
         # out1 = not any([v['available'] for v in d['variants']])
         # if out1: reason['Sold out'] += 1
-        out2 = 'women' in self.d['tags'] or 'womens' in self.d['tags'] or 'women' in self.d['handle'] or 'women' in self.d['product_type'] or 'women' in self.d['title']
+        out2 = any(map(lambda x: 'women' in x, self.d['tags'])) or 'women' in self.d['handle'] or 'women' in self.d['product_type'] or 'women' in self.d['title'] or 'gender womens' in self.d['tags']
         if out2: self.reason['Women product'] += 1
         out3 = self.d['tags'] == []
         if out3: self.reason['Tags empty'] += 1
@@ -290,10 +290,10 @@ def make_body(det, size, ship):
 
 def gen_clean(text):
     text = text.split('-1')[0]
+    text = re.sub('[^A-Za-z0-9]+', ' ', text)
     text = text.lower().replace(' ', '-')
     text = text.replace('/', '-')
     text = text.replace("'", '')
-    text = re.sub('[^A-Za-z0-9]+', ' ', text)
     return text
 
 def gen_clean_li(li):

@@ -9,6 +9,7 @@ note = 'Final upload'
 
 brand = Shopify(NAME, DISPLAY_NAME, cats, shipping, note)
 brand.url = ['https://' + NAME + '.us/collections/', '/products.json?limit=250&page=']
+brand.link = brand.url[0].split('collections')[0]
 brand.run()
 brand.write_csv()
 brand.write_info()

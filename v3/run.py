@@ -1,10 +1,8 @@
-from os import walk
+from os import listdir
 from importlib import import_module
 path = '.'
 
-for (dirpath, dirname, filenames) in walk(path):
-    for f in filenames:
-        if 'template' in f or 'general' in f or 'creds' in f: continue
-        print('\n', f)
-        import_module(f[:-3])
-    break
+for f in listdir(path):
+    if 'template' in f or 'general' in f or 'creds' in f or 'update' in f or f[-3:] != '.py': continue
+    print('\n', f)
+    import_module(f[:-3])

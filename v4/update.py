@@ -6,10 +6,14 @@ import shutil
 from product import Product
 from creds import base_url, top_url
 import json
+import sys
 
 
 old_path = 'old/'
 new_path = 'new/'
+print(sys.argv)
+run = not sys.argv[-1] == '-nr'
+
 
 def csv_diff(old_csv, new_csv):
     new_prod = []
@@ -95,14 +99,14 @@ def publish_prod(prod):
     prod_id = get_id(prod.handle)
     data = {"product_listing":{"product_id":prod_id}}
     res = put(top_url+'/product_listings/'+str(prod_id)+'.json', data=json.dumps(data), headers={'Content-Type': 'application/json'}).content
-    print(res, '\n\n')
+    # print(res, '\n\n')
     if "error" in str(res): print("Couldn't product product with title", data['product']['title'])
 
 if __name__ == "__main__":
     old_files = os.listdir("./"+old_path)
     new_files = os.listdir("./"+new_path)
     # print(old_files)
-    __import__('run')
+    if run: __import__('run')
     for old in old_files:
         try:
             new_files.index(old)
@@ -114,22 +118,22 @@ if __name__ == "__main__":
         new_prod, modify, deletes = csv_diff(old, new)
         print(len(new_prod), len(modify), len(deletes))
 
-        # for i,handle in enumerate(deletes):
-        #     print("Deleting", handle)
-        #     print(str(i+1)+'/'+str(len(deletes)))
-        #     delete_prod(handle)
-        #     sleep(0.5)
-        # for i,prod in enumerate(new_prod): 
-        #     print("Adding product", prod.title)
-        #     print(str(i+1)+'/'+str(len(new_prod)))
-        #     add_prod(prod)
-        #     publish_prod(prod)
-        #     sleep(0.5)
+        for i,handle in enumerate(deletes):
+            print("Deleting", handle)
+            print(str(i+1)+'/'+str(len(deletes)))
+            delete_prod(handle)
+            # sleep(0.2)
+        for i,prod in enumerate(new_prod): 
+            print("Adding product", prod.title)
+            print(str(i+1)+'/'+str(len(new_prod)))
+            add_prod(prod)
+            publish_prod(prod)
+            # sleep(0.2)
         for i,prod in enumerate(modify):
             print("Modifying product", prod.title)
             print(str(i+1)+'/'+str(len(modify)))
             modify_prod(prod)
-            sleep(0.5)
+            # sleep(0.2)
 
         os.remove(old_path+'/'+old)
         shutil.move(new_path+'/'+new, old_path+'/'+new)

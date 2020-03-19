@@ -268,3 +268,27 @@ Total Time: 294.92s
 {'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
 
 
+18/03/2020 19:44:34
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 109/285
+Total Time: 26.46s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
+
+
+19/03/2020 07:19:47
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 109/285
+Total Time: 23.71s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
+
+
+19/03/2020 07:31:38
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 109/285
+Total Time: 14.41s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
+
+
