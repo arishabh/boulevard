@@ -115,12 +115,13 @@ class Shopify():
         if self.all_sizes == []: self.all_sizes = ['OS']
         if ' / ' not in self.all_sizes[0]: self.all_sizes = [x.upper() for x in self.all_sizes]
         if len(self.fits) < 2: self.fits = ['']
-        if len(self.colors) < 2 : self.colors = ['']
-        self.pos = {}
-        if len(self.colors) > 2:
+        if len(self.colors) < 2 and self.name != "w-co": self.colors = ['']
+        else:
+            self.pos = {}
             for color in self.colors: self.pos[color] = []
             for v in self.d['variants']:
-                color = list(filter(lambda x: x in v['title'], self.colors))[0]
+                try: color = list(filter(lambda x: x in v['title'], self.colors))[0]
+                except: continue
                 if v['featured_image'] == None:
                     self.pos[color] = [0]
                     continue
@@ -139,8 +140,7 @@ class Shopify():
                 except:
                     for _ in range(5):
                         lims[i].append(lims[i][-1] + 1)
-        else:
-            self.colors = ['']
+        print("Color", self.colors, "Fit", self.fits)
 
     def add_color(self, color):
         self.prod.title += ' - ' + color
