@@ -1,6 +1,7 @@
 import csv
 from requests import get, put, post, delete
 from time import time, sleep
+from datetime import datetime
 import os
 import shutil
 from product import Product
@@ -102,11 +103,19 @@ def publish_prod(prod):
     # print(res, '\n\n')
     if "error" in str(res): print("Couldn't product product with title", data['product']['title'])
 
+def write_file(duration, files):
+    with open("update_info.txt", "a+") as f:
+        f.write(str(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))+"\n")
+        f.write("Total time taken: " + str(duration) + '\n')
+        f.write("Total number of files: " + str(files) + "\n")
+        f.write("Average time for each file: " + str(duration/files) + "\n\n\n")
+
 if __name__ == "__main__":
+    start = time()
     old_files = os.listdir("./"+old_path)
     new_files = os.listdir("./"+new_path)
     # print(old_files)
-    # if run: __import__('run')
+    if run: __import__('run')
     for old in old_files:
         try:
             new_files.index(old)
@@ -137,3 +146,5 @@ if __name__ == "__main__":
 
         os.remove(old_path+'/'+old)
         shutil.move(new_path+'/'+new, old_path+'/'+new)
+    tot = time() - start
+    write_file(tot, len(old_files))
