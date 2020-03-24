@@ -115,6 +115,7 @@ class Shopify():
         if self.all_sizes == []: self.all_sizes = ['OS']
         if ' / ' not in self.all_sizes[0]: self.all_sizes = [x.upper() for x in self.all_sizes]
         if len(self.fits) < 2: self.fits = ['']
+        if len(self.colors) < 2 : self.colors = ['']
         self.pos = {}
         if len(self.colors) > 2:
             for color in self.colors: self.pos[color] = []
@@ -278,7 +279,7 @@ class Shopify():
             self.prods[self.prods.index(self.prod)].tags.append(gen_clean(self.c))
             self.reason['Repeated product'] += 1
             return True
-        if ((self.name == 'featsocks' or self.name == 'tenthousand') and [a for a in self.prods if a.title==self.prod.title]): 
+        if ((self.name == 'featsocks' or self.name == 'tenthousand' or self.name == 'westernrise') and [a for a in self.prods if a.title==self.prod.title]): 
             self.reason['Repeated product'] += 1
             return True
         if not self.prod.img_urls: 

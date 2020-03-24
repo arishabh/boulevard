@@ -78,13 +78,13 @@ def get_id(handle):
 def delete_prod(handle):
     prod_id = get_id(handle)
     res = delete(base_url+'/products/'+str(prod_id)+'.json').content
-    print(res, '\n\n')
+    # print(res, '\n\n')
     if "error" in str(res): print("Couldn't delete product with id", prod_id)
 
 def add_prod(prod):
     data = prod.get_json()
     res = post(base_url+'/products.json', data=json.dumps(data), headers={'Content-Type': 'application/json'}).content
-    print(res, '\n\n')
+    # print(res, '\n\n')
     # if "error" in str(res): print("Couldn't product product with title", data['product']['title'])
 
 def modify_prod(prod):
@@ -92,7 +92,7 @@ def modify_prod(prod):
     data = prod.get_json(prod_id)
     # print(json.dumps(data))
     res = put(base_url+'/products/'+str(prod_id)+'.json', data=json.dumps(data), headers={'Content-Type': 'application/json'}).content
-    print(res, '\n\n')
+    # print(res, '\n\n')
     if "error" in str(res): print("Couldn't product product with title", data['product']['title'])
 
 def publish_prod(prod):
@@ -106,7 +106,7 @@ if __name__ == "__main__":
     old_files = os.listdir("./"+old_path)
     new_files = os.listdir("./"+new_path)
     # print(old_files)
-    if run: __import__('run')
+    # if run: __import__('run')
     for old in old_files:
         try:
             new_files.index(old)
@@ -116,23 +116,23 @@ if __name__ == "__main__":
             continue
         print('\n\n' + new + '\n\n')
         new_prod, modify, deletes = csv_diff(old, new)
-        print(len(new_prod), len(modify), len(deletes))
+        print(len(deletes), len(modify), len(new_prod))
 
         for i,handle in enumerate(deletes):
-            print("Deleting", handle)
+            print("Deleting", handle, 'in', new)
             print(str(i+1)+'/'+str(len(deletes)))
             delete_prod(handle)
             # sleep(0.2)
+        for i,prod in enumerate(modify):
+            print("Modifying product", prod.title, "in", new)
+            print(str(i+1)+'/'+str(len(modify)))
+            modify_prod(prod)
+            # sleep(0.2)
         for i,prod in enumerate(new_prod): 
-            print("Adding product", prod.title)
+            print("Adding product", prod.title, 'in', new)
             print(str(i+1)+'/'+str(len(new_prod)))
             add_prod(prod)
             publish_prod(prod)
-            # sleep(0.2)
-        for i,prod in enumerate(modify):
-            print("Modifying product", prod.title)
-            print(str(i+1)+'/'+str(len(modify)))
-            modify_prod(prod)
             # sleep(0.2)
 
         os.remove(old_path+'/'+old)

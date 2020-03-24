@@ -292,3 +292,67 @@ Total Time: 14.41s
 {'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
 
 
+19/03/2020 11:14:38
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 109/285
+Total Time: 35.01s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
+
+
+19/03/2020 11:40:14
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 109/285
+Total Time: 14.84s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
+
+
+19/03/2020 11:48:16
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 109/285
+Total Time: 18.43s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
+
+
+20/03/2020 15:13:55
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 109/285
+Total Time: 29.33s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
+
+
+20/03/2020 15:21:52
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 109/285
+Total Time: 18.44s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
+
+
+20/03/2020 16:20:21
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 109/285
+Total Time: 21.5s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 142, 'Sold out': 33}
+
+
+23/03/2020 21:54:06
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 115/285
+Total Time: 53.32s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 148, 'Sold out': 21}
+
+
+24/03/2020 10:45:34
+Now collections add all tags if there in multiple collections
+They have sizes like Extra large and Double extra large
+Total products: 38/285
+Total Time: 19.46s
+{'"Gift" in product': 1, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 230, 'Sold out': 16}
+
+
