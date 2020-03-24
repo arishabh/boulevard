@@ -123,7 +123,7 @@ if __name__ == "__main__":
         except:
             print("File", old, "not found in new folder")
             continue
-        print('\n\n' + new + '\n\n')
+        print('\n\n' + new + " " + str(i) + '/' + len(old_files) + '\n\n')
         new_prod, modify, deletes = csv_diff(old, new)
         print(len(deletes), len(modify), len(new_prod))
 
