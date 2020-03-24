@@ -128,17 +128,17 @@ if __name__ == "__main__":
         print(len(deletes), len(modify), len(new_prod))
 
         for i,handle in enumerate(deletes):
-            print("Deleting", handle, 'in', new)
+            print("Deleting", handle, '|', new)
             print(str(i+1)+'/'+str(len(deletes)))
             delete_prod(handle)
             # sleep(0.2)
         for i,prod in enumerate(modify):
-            print("Modifying product", prod.title, "in", new)
+            print("Modifying product", prod.title, "|", new)
             print(str(i+1)+'/'+str(len(modify)))
             modify_prod(prod)
             # sleep(0.2)
         for i,prod in enumerate(new_prod): 
-            print("Adding product", prod.title, 'in', new)
+            print("Adding product", prod.title, '|', new)
             print(str(i+1)+'/'+str(len(new_prod)))
             add_prod(prod)
             publish_prod(prod)
