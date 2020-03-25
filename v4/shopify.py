@@ -115,7 +115,7 @@ class Shopify():
         if self.all_sizes == []: self.all_sizes = ['OS']
         if ' / ' not in self.all_sizes[0]: self.all_sizes = [x.upper() for x in self.all_sizes]
         if len(self.fits) < 2: self.fits = ['']
-        if not self.colors: self.colors = ['']
+        if len(self.colors) < 2 and self.name != 'w-co' and self.name != 'untuckit': self.colors = ['']
         else:
             self.pos = {}
             for color in self.colors: self.pos[color] = []
@@ -143,7 +143,7 @@ class Shopify():
 
     def add_color(self, color):
         c = ' ' + color + ' '
-        if (c not in  self.prod.title and c.upper() not in self. prod.title):
+        if (c not in  self.prod.title and c.upper() not in self.prod.title):
             self.prod.title += ' - ' + color
         self.prod.handle += '-' + gen_clean(color)
         self.prod.img_pos = []
