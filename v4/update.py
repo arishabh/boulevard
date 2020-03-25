@@ -106,9 +106,9 @@ def publish_prod(prod):
 def write_file(duration, files):
     with open("update_info.txt", "a+") as f:
         f.write(str(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))+"\n")
-        f.write("Total time taken: " + str(duration) + '\n')
+        f.write("Total time taken: " + str(duration/60) + ' min' + '\n')
         f.write("Total number of files: " + str(files) + "\n")
-        f.write("Average time for each file: " + str(duration/files) + "\n\n\n")
+        f.write("Average time for each file: " + str(duration/files) + ' s' + "\n\n")
 
 if __name__ == "__main__":
     start = time()
