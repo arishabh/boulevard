@@ -142,7 +142,9 @@ class Shopify():
                         lims[i].append(lims[i][-1] + 1)
 
     def add_color(self, color):
-        self.prod.title += ' - ' + color
+        c = ' ' + color + ' '
+        if (c not in  self.prod.title and c.upper() not in self. prod.title):
+            self.prod.title += ' - ' + color
         self.prod.handle += '-' + gen_clean(color)
         self.prod.img_pos = []
         self.prod.img_urls = []

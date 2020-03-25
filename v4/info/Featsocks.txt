@@ -152,3 +152,11 @@ Total Time: 11.14s
 {'"Gift" in product': 8, 'No images': 0, 'Tags empty': 10, 'Women product': 26, 'Repeated product': 65, 'Sold out': 2}
 
 
+25/03/2020 08:21:34
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 17/94
+Total Time: 7.34s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 5, 'Women product': 25, 'Repeated product': 40, 'Sold out': 0}
+
+
