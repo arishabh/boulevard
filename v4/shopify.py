@@ -140,7 +140,6 @@ class Shopify():
                 except:
                     for _ in range(5):
                         lims[i].append(lims[i][-1] + 1)
-        print("Color", self.colors, "Fit", self.fits)
 
     def add_color(self, color):
         self.prod.title += ' - ' + color
