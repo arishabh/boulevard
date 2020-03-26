@@ -260,3 +260,27 @@ Total Time: 17.22s
 {'"Gift" in product': 8, 'No images': 20, 'Tags empty': 7, 'Women product': 0, 'Repeated product': 82, 'Sold out': 118}
 
 
+25/03/2020 16:22:14
+Now collections add all tags if there in multiple collections
+Changed the URl (with https)
+Total products: 56/291
+Total Time: 17.11s
+{'"Gift" in product': 9, 'No images': 20, 'Tags empty': 7, 'Women product': 0, 'Repeated product': 81, 'Sold out': 118}
+
+
+26/03/2020 06:17:07
+Now collections add all tags if there in multiple collections
+Changed the URl (with https)
+Total products: 60/294
+Total Time: 12.23s
+{'"Gift" in product': 9, 'No images': 20, 'Tags empty': 7, 'Women product': 0, 'Repeated product': 81, 'Sold out': 117}
+
+
+26/03/2020 06:17:54
+Now collections add all tags if there in multiple collections
+Changed the URl (with https)
+Total products: 60/294
+Total Time: 7.94s
+{'"Gift" in product': 9, 'No images': 20, 'Tags empty': 7, 'Women product': 0, 'Repeated product': 81, 'Sold out': 117}
+
+
