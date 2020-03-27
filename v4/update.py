@@ -42,7 +42,7 @@ def csv_diff(old_csv, new_csv):
             elif mode and l[3] == '': old_prod.append(l)
             elif mode and l[3] != '': break
 
-        if old_prod[0] != prod[0]:
+        if not all(l in old_prod for l in prod):
             product = Product()
             product.make_product(prod)
             if not mode: 
