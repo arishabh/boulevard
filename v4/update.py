@@ -50,7 +50,7 @@ def csv_diff(old_csv, new_csv):
                 # print("Brand new product:", prod)
             else: 
                 modify_prod.append(product)
-                print("Old product\n", old_prod, "Has to be modified to\n", prod)
+                # print("Old product\n", old_prod, "Has to be modified to\n", prod)
 
         for p in old_prod: old.remove(p)
         prod = [line] 
