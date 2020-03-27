@@ -39,9 +39,10 @@ def csv_diff(old_csv, new_csv):
             if l[1] == handle:
                 mode = True
                 old_prod.append(l)
+            elif mode and l[3] == '': old_prod.append(l)
             elif mode and l[3] != '': break
 
-        if not all(l in old_prod for l in prod): 
+        if old_prod[0] != prod[0]:
             product = Product()
             product.make_product(prod)
             if not mode: 
@@ -49,7 +50,7 @@ def csv_diff(old_csv, new_csv):
                 # print("Brand new product:", prod)
             else: 
                 modify_prod.append(product)
-                # print("Old product", old_prod, "Has to be modified to", prod)
+                print("Old product\n", old_prod, "Has to be modified to\n", prod)
 
         for p in old_prod: old.remove(p)
         prod = [line] 
