@@ -1,7 +1,7 @@
 import csv
 from requests import get, put, post, delete
 from time import time, sleep
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import shutil
 from product import Product
@@ -106,7 +106,7 @@ def publish_prod(prod):
 
 def write_file(duration, files):
     with open("update_info.txt", "a+") as f:
-        f.write(str(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))+"\n")
+        f.write(str((datetime.now()-timedelta(hours=-4)).strftime("%d/%m/%Y %H:%M:%S"))+" ET\n")
         f.write("Total time taken: " + str(duration/60) + ' min' + '\n')
         f.write("Total number of files: " + str(files) + "\n")
         f.write("Average time for each file: " + str(duration/files) + ' s' + "\n\n")
