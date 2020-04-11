@@ -121,6 +121,7 @@ if __name__ == "__main__":
         if run: __import__('run')
     old_files = os.listdir("./"+old_path)
     new_files = os.listdir("./"+new_path)
+    totf = 0
     for i,old in enumerate(old_files):
         try:
             new_files.index(old)
@@ -128,6 +129,7 @@ if __name__ == "__main__":
         except:
             print("File", old, "not found in new folder")
             continue
+        totf += 1
         print('\n\n' + new + " " + str(i) + '/' + str(len(old_files)) + '\n\n')
         new_prod, modify, deletes = csv_diff(old, new)
         print(len(deletes), len(modify), len(new_prod))
@@ -152,4 +154,4 @@ if __name__ == "__main__":
         os.remove(old_path+'/'+old)
         shutil.move(new_path+'/'+new, old_path+'/'+new)
     tot = time() - start
-    write_file(tot, len(old_files))
+    write_file(tot, totf)
