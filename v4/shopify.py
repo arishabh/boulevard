@@ -38,14 +38,15 @@ class Shopify():
         self.start = time()
         old_tot = 0
         for c in self.cats:
-            if self.c[-2:] == '-P': 
+            if c[-2:] == '-P': 
                 furl = [self.url[0].replace('collections', 'products'), self.url[1]]
                 self.c = c[:-2]
+                self.data = [json.loads(bs(get(furl[0] + self.c + furl[1] + '1').content, 'html.parser').getText())['product']]
             else: 
                 furl = self.url
                 self.c = c
+                self.data = json.loads(bs(get(furl[0] + self.c + furl[1] + '1').content, 'html.parser').getText())['products']
             ind = 1
-            self.data = json.loads(bs(get(furl[0] + self.c + furl[1] + '1').content, 'html.parser').getText())['products']
             while self.data:
                 for d in self.data:
                     self.d = d
@@ -69,7 +70,10 @@ class Shopify():
                         self.tot += 1
                         self.prods.append(self.prod)
                 ind += 1
-                self.data = json.loads(bs(get(furl[0] + self.c + furl[1] + str(ind)).content, 'html.parser').getText())['products']
+                try:
+                    self.data = json.loads(bs(get(furl[0] + self.c + furl[1] + str(ind)).content, 'html.parser').getText())['products']
+                except:
+                    self.data = []
             if ind == 1: print("No products in category " + self.c)
             if old_tot == self.tot: print("No new products added in category", self.c)
             old_tot = self.tot
@@ -173,7 +177,11 @@ class Shopify():
                     if size != 'OS': size = size[-1]
                     if size not in self.avail_sizes: 
                         if fit: self.avail_sizes[size + ' - ' + fit] = [v['available'], v['id']]
-                        else: self.avail_sizes[size] = [v['available'], v['id']]
+                        else: 
+                            try:
+                                self.avail_sizes[size] = [v['available'], v['id']]
+                            except:
+                                self.avail_sizes[size] = [True, v['id']]
         if not any(list(map(lambda x: x[0], list(self.avail_sizes.values())))):
             self.reason['Sold out'] += 1
             return False
