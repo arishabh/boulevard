@@ -38,9 +38,14 @@ class Shopify():
         self.start = time()
         old_tot = 0
         for c in self.cats:
-            self.c = c
+            if self.c[-2:] == '-P': 
+                furl = [self.url[0].replace('collections', 'products'), self.url[1]]
+                self.c = c[:-2]
+            else: 
+                furl = self.url
+                self.c = c
             ind = 1
-            self.data = json.loads(bs(get(self.url[0] + c + self.url[1] + '1').content, 'html.parser').getText())['products']
+            self.data = json.loads(bs(get(furl[0] + self.c + furl[1] + '1').content, 'html.parser').getText())['products']
             while self.data:
                 for d in self.data:
                     self.d = d
@@ -50,7 +55,7 @@ class Shopify():
 
                     for color in self.colors:
                         if color != '' and self.pos[color] == [0]: continue
-                        self.prod = Product(self.d, c, self.name, self.dname, self.link)
+                        self.prod = Product(self.d, self.c, self.name, self.dname, self.link)
 
                         if color is not '': self.add_color(color)
 
@@ -64,9 +69,9 @@ class Shopify():
                         self.tot += 1
                         self.prods.append(self.prod)
                 ind += 1
-                self.data = json.loads(bs(get(self.url[0] + c + self.url[1] + str(ind)).content, 'html.parser').getText())['products']
-            if ind == 1: print("No products in category " + c)
-            if old_tot == self.tot: print("No new products added in category", c)
+                self.data = json.loads(bs(get(furl[0] + self.c + furl[1] + str(ind)).content, 'html.parser').getText())['products']
+            if ind == 1: print("No products in category " + self.c)
+            if old_tot == self.tot: print("No new products added in category", self.c)
             old_tot = self.tot
         for p in self.prods: self.rows += p.get_rows()
         print("Total products: " + str(self.tot) + "/" + str(sum(list(self.reason.values())) + self.tot) + "\nTotal Time: " + str(round(time() - self.start, 2)) + 's')

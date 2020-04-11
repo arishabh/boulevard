@@ -113,10 +113,14 @@ def write_file(duration, files):
 
 if __name__ == "__main__":
     start = time()
+    # print(old_files)
+    try:
+        if run: __import__('run')
+    except:
+        sleep(10)
+        if run: __import__('run')
     old_files = os.listdir("./"+old_path)
     new_files = os.listdir("./"+new_path)
-    # print(old_files)
-    if run: __import__('run')
     for i,old in enumerate(old_files):
         try:
             new_files.index(old)
