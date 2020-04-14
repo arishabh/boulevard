@@ -1,7 +1,7 @@
-from os import listdir
+from os import listdir, path
 from importlib import import_module
 from time import sleep
-path = '.'
+path = path.dirname(path.abspath(__file__))
 files = listdir(path)
 
 for i,f in enumerate(files):

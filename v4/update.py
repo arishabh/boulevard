@@ -10,8 +10,8 @@ import json
 import sys
 
 
-old_path = 'old/'
-new_path = 'new/'
+old_path = os.path.dirname(os.path.abspath(__file__)) + '/old/'
+new_path = os.path.dirname(os.path.abspath(__file__)) + '/new/'
 print(sys.argv)
 run = not sys.argv[-1] == '-nr'
 
@@ -119,8 +119,8 @@ if __name__ == "__main__":
     except:
         sleep(10)
         if run: __import__('run')
-    old_files = os.listdir("./"+old_path)
-    new_files = os.listdir("./"+new_path)
+    old_files = os.listdir(old_path)
+    new_files = os.listdir(new_path)
     totf = 0
     for i,old in enumerate(old_files):
         try:
