@@ -3,6 +3,7 @@ from importlib import import_module
 from time import sleep
 path = path.dirname(path.abspath(__file__))
 files = listdir(path)
+print(files)
 
 for i,f in enumerate(files):
     if 'reset' in f or 'template' in f or 'run' in f or 'general' in f or 'creds' in f or 'update' in f or f[-3:] != '.py': continue
