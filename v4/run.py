@@ -10,8 +10,9 @@ for i,f in enumerate(files):
     try:
         print('\n', i, '/', len(files), f)
         import_module(f[:-3])
-        print("DONEEE")
     except:
         print('\n', i, '/', len(files), f)
+        sleep(10)
         __import__(f[:-3])
+    print('DONE')
 
