@@ -14,6 +14,10 @@ for i,f in enumerate(files):
         print("Error:", e)
         print('\n', i, '/', len(files), f)
         sleep(10)
-        import_module(f[:-3])
+        try:
+            import_module(f[:-3])
+        except:
+            print("Skipped", f)
+            continue
     print('DONE')
 
