@@ -13,7 +13,9 @@ import sys
 old_path = os.path.dirname(os.path.abspath(__file__)) + '/old/'
 new_path = os.path.dirname(os.path.abspath(__file__)) + '/new/'
 print(sys.argv)
-run = not sys.argv[-1] == '-nr'
+run = '-nr' not in sys.argv
+post_collections = '-pc' in sys.argv or '--post-collections' in sys.argv
+
 
 
 def csv_diff(old_csv, new_csv):
