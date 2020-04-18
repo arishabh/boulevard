@@ -108,7 +108,7 @@ def publish_prod(prod):
     if "error" in str(res): print("Couldn't product product with title", data['product']['title'])
 
 def write_file(duration, files):
-    with open("update_info.txt", "a+") as f:
+    with open(os.path.dirname(os.path.abspath(__file__))+"/update_info.txt", "a+") as f:
         f.write(str((datetime.now()-timedelta(hours=-4)).strftime("%d/%m/%Y %H:%M:%S"))+" ET\n")
         f.write("Total time taken: " + str(duration/60) + ' min' + '\n')
         f.write("Total number of files: " + str(files) + "\n")
