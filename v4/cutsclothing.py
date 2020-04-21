@@ -8,6 +8,7 @@ shipping = 'Free U.S. Shipping & Returns Over $100 | Free International Shipping
 note = 'Final Upload'
 
 brand = Shopify(NAME, DISPLAY_NAME, cats, shipping, note)
+brand.url = ['https://shop.' + NAME + '.com/collections/', '/products.json?limit=250&page=']
 brand.run()
 brand.write_csv()
 brand.write_info()
