@@ -62,6 +62,7 @@ class Shopify():
 
                         if color is not '': self.add_color(color)
 
+                        print(self.prod.title)
                         if self.check_error(): continue 
                         if not self.process_sizes(color): continue
 
