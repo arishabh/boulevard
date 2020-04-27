@@ -2,8 +2,8 @@ from shopify import Shopify
 
 NAME = 'featsocks'
 DISPLAY_NAME = 'Feat'
-cats = ['blanketblend', 'socks']
-cat_names = ['BlanketBlend', 'Socks']
+cats = ['blanketblend', 'socks', 'crewnecks']
+cat_names = ['BlanketBlend', 'Socks', 'Crewnecks']
 shipping = 'Free shipping and returns for orders above $75'
 note = 'HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!'
 
