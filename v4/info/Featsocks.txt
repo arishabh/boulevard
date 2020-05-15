@@ -496,3 +496,99 @@ Total Time: 6.56s
 {'"Gift" in product': 8, 'No images': 0, 'Tags empty': 3, 'Women product': 20, 'Repeated product': 12, 'Sold out': 0}
 
 
+03/05/2020 07:10:27
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 9/52
+Total Time: 6.15s
+{'"Gift" in product': 8, 'No images': 0, 'Tags empty': 3, 'Women product': 20, 'Repeated product': 12, 'Sold out': 0}
+
+
+04/05/2020 07:10:35
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 38/126
+Total Time: 10.71s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 22, 'Repeated product': 56, 'Sold out': 0}
+
+
+05/05/2020 07:10:53
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 38/126
+Total Time: 11.55s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 22, 'Repeated product': 56, 'Sold out': 0}
+
+
+06/05/2020 07:10:35
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 38/126
+Total Time: 9.6s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 22, 'Repeated product': 56, 'Sold out': 0}
+
+
+07/05/2020 07:10:51
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 38/126
+Total Time: 10.05s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 22, 'Repeated product': 56, 'Sold out': 0}
+
+
+08/05/2020 07:11:46
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 36/130
+Total Time: 9.62s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 26, 'Repeated product': 54, 'Sold out': 4}
+
+
+09/05/2020 07:11:41
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 36/130
+Total Time: 12.96s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 26, 'Repeated product': 54, 'Sold out': 4}
+
+
+10/05/2020 07:11:57
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 34/130
+Total Time: 10.47s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 26, 'Repeated product': 52, 'Sold out': 8}
+
+
+11/05/2020 07:11:27
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 34/130
+Total Time: 10.06s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 26, 'Repeated product': 52, 'Sold out': 8}
+
+
+12/05/2020 07:11:47
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 34/130
+Total Time: 11.11s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 26, 'Repeated product': 52, 'Sold out': 8}
+
+
+13/05/2020 07:11:50
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 33/130
+Total Time: 10.31s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 26, 'Repeated product': 52, 'Sold out': 9}
+
+
+14/05/2020 07:12:06
+Now collections add all tags if there in multiple collections
+HAS 12 PRODUCTS WITH EXACT SAME EVERYTHING EXCEPT FOR HANDLE!! MOTHAFUCKERS!!!
+Total products: 33/129
+Total Time: 11.03s
+{'"Gift" in product': 7, 'No images': 0, 'Tags empty': 3, 'Women product': 26, 'Repeated product': 52, 'Sold out': 8}
+
+

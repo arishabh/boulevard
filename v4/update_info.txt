@@ -113,3 +113,63 @@ Total time taken: 51.66853510538737 min
 Total number of files: 19
 Average time for each file: 163.16379506964432 s
 
+03/05/2020 11:33:13 ET
+Total time taken: 33.19332285722097 min
+Total number of files: 19
+Average time for each file: 104.82101954911884 s
+
+04/05/2020 12:45:16 ET
+Total time taken: 105.2400495727857 min
+Total number of files: 19
+Average time for each file: 332.3369986509022 s
+
+05/05/2020 12:52:44 ET
+Total time taken: 112.69556407531103 min
+Total number of files: 19
+Average time for each file: 355.88072865887693 s
+
+06/05/2020 12:03:18 ET
+Total time taken: 63.28169562021891 min
+Total number of files: 19
+Average time for each file: 199.8369335375334 s
+
+07/05/2020 11:47:15 ET
+Total time taken: 47.223259349664055 min
+Total number of files: 19
+Average time for each file: 149.12608215683386 s
+
+08/05/2020 11:53:34 ET
+Total time taken: 53.53656193812688 min
+Total number of files: 18
+Average time for each file: 178.45520646042294 s
+
+09/05/2020 11:48:27 ET
+Total time taken: 48.410310395558675 min
+Total number of files: 18
+Average time for each file: 161.36770131852893 s
+
+10/05/2020 11:23:54 ET
+Total time taken: 23.860674365361533 min
+Total number of files: 18
+Average time for each file: 79.53558121787177 s
+
+11/05/2020 11:24:18 ET
+Total time taken: 24.289652593930562 min
+Total number of files: 17
+Average time for each file: 85.72818562563728 s
+
+12/05/2020 11:34:38 ET
+Total time taken: 34.61382877031962 min
+Total number of files: 18
+Average time for each file: 115.37942923439874 s
+
+13/05/2020 11:50:21 ET
+Total time taken: 50.3266925573349 min
+Total number of files: 18
+Average time for each file: 167.755641857783 s
+
+14/05/2020 11:47:02 ET
+Total time taken: 47.00874980688095 min
+Total number of files: 18
+Average time for each file: 156.69583268960318 s
+
