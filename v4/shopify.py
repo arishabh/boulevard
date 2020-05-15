@@ -151,6 +151,11 @@ class Shopify():
                 except:
                     for _ in range(5):
                         lims[i].append(lims[i][-1] + 1)
+            # if self.name == 'johnnie-o':
+            #     self.pos[''] = []
+            #     for i in self.d['images']: 
+            #         print(i)
+            #         self.pos[i.get('alt', '')].append(i['position'])
 
     def add_color(self, color):
         if (color not in  self.prod.title and color.upper() not in self.prod.title):
