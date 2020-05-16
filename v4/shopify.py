@@ -13,7 +13,7 @@ from PIL import Image
 import xml.etree.cElementTree as ET
 from os import path
 
-sizes_debug = False
+sizes_debug = True
 
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
@@ -47,6 +47,7 @@ class Shopify():
             else: 
                 furl = self.url
                 self.c = c
+                if sizes_debug: print(furl, c)
                 self.data = json.loads(bs(get(furl[0] + self.c + furl[1] + '1').content, 'html.parser').getText())['products']
             ind = 1
             while self.data:
@@ -69,8 +70,8 @@ class Shopify():
                         else: details = clean_text(d['body_html'])
                         self.make_body(details, self.size, self.shipping)
         
-                        self.tot += 1
                         self.prods.append(self.prod)
+                    self.tot += 1
                 ind += 1
                 try:
                     self.data = json.loads(bs(get(furl[0] + self.c + furl[1] + str(ind)).content, 'html.parser').getText())['products']
@@ -241,14 +242,15 @@ class Shopify():
         return result
 
     def check(self):
-        out = 'gift' in self.d['title'].lower() or 'gift' in self.d['handle'].lower() or 'gift' in self.d['product_type'] or 'cart-on' in self.d['title'] or not self.d['product_type'] or float(self.d['variants'][0]['price']) == 0.0
+        out = 'gift' in self.d['title'].lower() or 'gift' in self.d['handle'].lower() or 'gift' in self.d['product_type'] or 'cart-on' in self.d['title'] or float(self.d['variants'][0]['price']) == 0.0
         if out: self.reason['"Gift" in product'] += 1
         out1 = False
         # out1 = not any([v['available'] for v in d['variants']])
         # if out1: reason['Sold out'] += 1
-        out2 = any(map(lambda x: 'women' in x, self.d['tags'])) or 'women' in self.d['handle'] or 'women' in self.d['product_type'] or 'women' in self.d['title'] or 'gender womens' in self.d['tags']
+        out2 = any(map(lambda x: ('women' in x) and 'men' not in x, self.d['tags'])) or 'women' in self.d['handle'] or 'women' in self.d['product_type'] or 'women' in self.d['title'] or 'gender womens' in self.d['tags']
         if out2: self.reason['Women product'] += 1
-        out3 = self.d['tags'] == []
+        # out3 = self.d['tags'] == []
+        out3 = False
         if out3: self.reason['Tags empty'] += 1
         return (out or out1 or out2 or out3), self.reason
 
