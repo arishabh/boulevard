@@ -43,12 +43,14 @@ class Shopify():
             if c[-2:] == '-P': 
                 furl = [self.url[0].replace('collections', 'products'), self.url[1]]
                 self.c = c[:-2]
-                self.data = [json.loads(bs(get(furl[0] + self.c + furl[1] + '1').content, 'html.parser').getText())['product']]
+                furl = furl[0] + self.c + furl[1] + '1'
+                self.data = [json.loads(bs(get(furl).content, 'html.parser').getText())['product']]
             else: 
                 furl = self.url
                 self.c = c
-                if sizes_debug: print(furl, c)
-                self.data = json.loads(bs(get(furl[0] + self.c + furl[1] + '1').content, 'html.parser').getText())['products']
+                furl = furl[0] + self.c + furl[1] + '1'
+                if sizes_debug: print(furl)
+                self.data = json.loads(bs(get(furl).content, 'html.parser').getText())['products']
             ind = 1
             while self.data:
                 for d in self.data:
@@ -249,8 +251,7 @@ class Shopify():
         # if out1: reason['Sold out'] += 1
         out2 = any(map(lambda x: ('women' in x) and 'men' not in x, self.d['tags'])) or 'women' in self.d['handle'] or 'women' in self.d['product_type'] or 'women' in self.d['title'] or 'gender womens' in self.d['tags']
         if out2: self.reason['Women product'] += 1
-        # out3 = self.d['tags'] == []
-        out3 = False
+        out3 = self.d['tags'] == []
         if out3: self.reason['Tags empty'] += 1
         return (out or out1 or out2 or out3), self.reason
 

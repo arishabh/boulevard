@@ -8,6 +8,7 @@ shipping = 'Return is eligible within 365 days of delivery'
 note = 'New brand'
 
 brand = Shopify(WEB_NAME, DISPLAY_NAME, cats, shipping, note)
+brand.url = ['https://shop.' + WEB_NAME + '.com/collections/', '/products.json?limit=250&page=']
 brand.run()
 brand.write_csv()
 brand.write_info()

@@ -1,13 +1,13 @@
 from requests import get
 from bs4 import BeautifulSoup as bs
 
-url = "https://asrv.co/"
+url = "https://imperialmotion.com/"
 soup = bs(get(url).text, "lxml")
 
 final_links = []
 final_cats = []
 
-all_cats = soup.findAll('div', {"class": 'vertical-menu'})
+all_cats = soup.findAll('div', {"class": 'grid__item medium-up--one-fifth'})
 for cat in all_cats:
     # all_links = cat.find("ul").findChildren()
     all_links = cat.findAll("a")
