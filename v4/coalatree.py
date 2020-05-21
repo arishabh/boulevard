@@ -2,8 +2,8 @@ from shopify import Shopify
 
 WEB_NAME = 'coalatree' # Website name
 DISPLAY_NAME = 'Coalatree' 
-cats = ['mens-jackets', 'mens-sweatshirts-hoddies', 'mens-pants', 'mens-shorts', 'mens-tees', 'accessories']
-cat_names = ['Jackets', 'Sweatshirts and Hoodies', 'Pants', 'Shorts', 'Tees']
+cats =  ['mens-sweatshirts-hoddies', 'mens-pants', 'mens-shorts', 'mens-tees', 'accessories', 'mens-jackets']
+cat_names = ['Sweatshirts and Hoodies', 'Pants', 'Shorts', 'Tees']
 shipping = 'For any exchanges or returns we offer a 30 day return policy on unopened and unworn products. Only regular priced items may be refunded, unfortunately sale items cannot be refunded.'
 note = 'New brand'
 
