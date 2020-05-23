@@ -1,0 +1,14 @@
+from shopify import Shopify
+
+WEB_NAME = 'wolfandshepherd' # Website name
+DISPLAY_NAME = 'Wolf & Shepherd' 
+cats = ['dress-shoes', 'hybrids', 'drivers', 'sneakers', 'sale', 'accessories', 'lace-ups', 'slip-ons', 'monk-straps', 'sneakers', 'hybrids', 'boots', 'dress-socks', 'ws-belts']
+cat_names = ['Dress Shoes', 'Hybrid Shoes', 'Drivers', 'Sneakers', 'Sale']
+shipping = 'Returns are accepted on all full price, unworn, undamaged items within 30 days of purchase.'
+note = 'New brand'
+
+brand = Shopify(WEB_NAME, DISPLAY_NAME, cats, shipping, note)
+brand.run()
+brand.write_csv()
+brand.write_info()
+# brand.post_collections(cat_names)

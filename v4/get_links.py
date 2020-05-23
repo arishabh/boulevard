@@ -1,13 +1,13 @@
 from requests import get
 from bs4 import BeautifulSoup as bs
 
-url = "https://bather.com/"
+url = "https://wolfandshepherd.com/"
 soup = bs(get(url).text, "lxml")
 
 final_links = []
 final_cats = []
 
-all_cats = soup.findAll('div', {"class": 'MegaMenu__Inner'})
+all_cats = soup.findAll('div', {"class": 'meganav__container'})
 for cat in all_cats:
     # all_links = cat.find("ul").findChildren()
     all_links = cat.findAll("a")
