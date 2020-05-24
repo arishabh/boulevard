@@ -12,8 +12,9 @@ from urllib.request import urlopen
 from PIL import Image
 import xml.etree.cElementTree as ET
 from os import path
+import urllib.request
 
-sizes_debug = True
+sizes_debug = False
 
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
@@ -32,6 +33,7 @@ class Shopify():
         p = path.dirname(path.abspath(__file__))
         self.csv_path = p + '/new/'
         self.info_path = p + '/info/'
+        self.img_path = p + '/imgs/'
         self.headers  = [['Collection', 'Handle', 'Title', 'Body (HTML)', 'Vendor', 'Type', 'Tags', 'Published', 'Option1 Name', 'Option1 Value', 'Option2 Name', 'Option2 Value', 'Option3 Name', 'Option3 Value', 'Variant SKU', 'Variant Grams', 'Variant Inventory Tracker', 'Variant Inventory Policy', 'Variant Fulfillment Service', 'Variant Price', 'Variant Compare At Price', 'Variant Requires Shipping', 'Variant Taxable', 'Variant Barcode', 'Image Src', 'Image Position', 'Image Alt Text', 'Gift Card', 'SEO Title', 'SEO Description', 'Google Shopping / Google selfuct Category', 'Google Shopping / Gender', 'Google Shopping / Age Group', 'Google Shopping / MPN', 'Google Shopping / AdWords Grouping', 'Google Shopping / AdWords Labels', 'Google Shopping / Condition', 'Google Shopping / Custom Product', 'Google Shopping / Custom Label 0', 'Google Shopping / Custom Label 1', 'Google Shopping / Custom Label 2', 'Google Shopping / Custom Label 3', 'Google Shopping / Custom Label 4', 'Variant Image', 'Variant Weight Unit', 'Variant Tax Code', 'Cost per item']]
         self.rows = self.headers
         self.tot = 0
@@ -266,9 +268,9 @@ class Shopify():
             writer = csv.writer(csvfile)
             writer.writerows(self.rows)
 
-    def post_collections(self, names):
-        image = self.img_finder(None)
+    def post_collections(self, names, imgs=[]):
         data = {"smart_collection":{"title": self.dname+'-men:All', "rules":[{"column":"vendor", "relation":"contains", "condition":self.dname+"-men"}], "body_html":"1"}}
+        if imgs: data["smart_collection"]["image"] = {"src":imgs[0], "width":200, "height":200}
         a = post(col_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
         # print(a.content)
         if self.cats == ['']: return
@@ -279,6 +281,7 @@ class Shopify():
                 print("No images for", c)
                 continue
             data = {"smart_collection":{"title": self.dname+'-men:'+n, "rules":[{"column":"vendor", "relation":"contains", "condition":self.dname+"-men"}, {"column":"tag", "relation":"equals", "condition":c}], "disjunctive": False, "body_html":str(i+2)}} 
+            if imgs: data["smart_collection"]["image"] = {"src":imgs[i+1], "width":200, "height":200}
             a = post(col_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
             # print(a.content)
         print("All collections posted")

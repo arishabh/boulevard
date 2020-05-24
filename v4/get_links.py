@@ -7,7 +7,7 @@ soup = bs(get(url).text, "lxml")
 final_links = []
 final_cats = []
 
-all_cats = soup.findAll('div', {"class": 'meganav__container'})
+all_cats = soup.findAll('div', {"class": 'meganav__header'})
 for cat in all_cats:
     # all_links = cat.find("ul").findChildren()
     all_links = cat.findAll("a")
