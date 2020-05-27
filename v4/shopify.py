@@ -14,7 +14,8 @@ import xml.etree.cElementTree as ET
 from os import path
 import urllib.request
 
-sizes_debug = False
+sizes_debug = True
+options_debug = True
 
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
@@ -114,10 +115,10 @@ class Shopify():
                 if('title' not in option['values'][0].lower()):
                     title = option['values']
             else:
-                print("Couldnt find list for option", option['name'], "with info", option['values'])
+                if options_debug: print("Couldnt find list for option", option['name'], "with info", option['values'])
         if inseam and length: 
-            print("Inseam and Length, both have values :(")
-            print("Inseam:", inseam, "Length:", length)
+            if options_debug: print("Inseam and Length, both have values :(")
+            if options_debug: print("Inseam:", inseam, "Length:", length)
         if not length and not inseam: length = ['']
         if (length or inseam) and not waist and self.all_sizes: waist, self.all_sizes = self.all_sizes, []
         if not self.all_sizes and title:
@@ -254,6 +255,7 @@ class Shopify():
         out2 = any(map(lambda x: ('women' in x) and 'men' not in x, self.d['tags'])) or 'women' in self.d['handle'] or 'women' in self.d['product_type'] or 'women' in self.d['title'] or 'gender womens' in self.d['tags']
         if out2: self.reason['Women product'] += 1
         out3 = self.d['tags'] == []
+        if self.name == 'manscaped': out3 = False
         if out3: self.reason['Tags empty'] += 1
         return (out or out1 or out2 or out3), self.reason
 
