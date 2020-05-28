@@ -668,3 +668,11 @@ Total Time: 15.16s
 {'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 39, 'Sold out': 5}
 
 
+28/05/2020 07:04:52
+Now collections add all tags if there in multiple collections
+Has sizes in the Title option
+Total products: 300/345
+Total Time: 15.14s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 41, 'Sold out': 4}
+
+
