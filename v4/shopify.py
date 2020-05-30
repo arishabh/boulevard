@@ -17,10 +17,12 @@ import urllib.request
 sizes_debug = True
 options_debug = True
 
+
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
         self.note = 'Now collections add all tags if there in multiple collections'
-        if note: self.note += '\n' + note
+        if note:
+            self.note += '\n' + note
         self.name = name
         self.dname = display_name
         self.cats = cats
@@ -28,7 +30,7 @@ class Shopify():
         self.size = 'Click buy for more sizing information.'
         self.file_name = self.name.title() + 'Inventory.csv'
         self.url = ['https://' + self.name + '.com/collections/', '/products.json?limit=250&page=']
-        self.link = self.url[0].split('collections')[0] 
+        self.link = self.url[0].split('collections')[0]
         self.reason = {'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 0}
         self.prods = []
         p = path.dirname(path.abspath(__file__))
@@ -43,27 +45,30 @@ class Shopify():
         self.start = time()
         old_tot = 0
         for c in self.cats:
-            if c[-2:] == '-P': 
+            if c[-2:] == '-P':
                 furl = [self.url[0].replace('collections', 'products'), self.url[1]]
                 self.c = c[:-2]
                 furl = furl[0] + self.c + furl[1] + '1'
                 self.data = [json.loads(bs(get(furl).content, 'html.parser').getText())['product']]
-            else: 
+            else:
                 furl = self.url
                 self.c = c
                 furl = furl[0] + self.c + furl[1] + '1'
-                if sizes_debug: print(furl)
+                if sizes_debug:
+                    print(furl)
                 self.data = json.loads(bs(get(furl).content, 'html.parser').getText())['products']
             ind = 1
             while self.data:
                 for d in self.data:
                     self.d = d
                     err, self.reason = self.check()
-                    if err: continue
+                    if err:
+                        continue
                     self.get_color_fit()
 
                     for color in self.colors:
-                        if color != '' and self.pos[color] == [0]: continue
+                        if color != '' and self.pos[color] == [0]:
+                            continue
                         self.prod = Product(self.d, self.c, self.name, self.dname, self.link)
 
                         if color is not '': self.add_color(color)
@@ -203,12 +208,14 @@ class Shopify():
         return True
 
     def write_sizes(self, sizes, varaints):
-        self.prod.body += "<fdsd>" + ','.join(variants) + "</fdsf><ff>" + ','.joint(sizes) + "</ff>" 
+        self.prod.body += "<fdsd>" + ','.join(variants) + "</fdsf><ff>" + ','.join(sizes) + "</ff>" 
 
     def proc_size(self, inp):
         size = inp.upper().replace('-', '')
-        if inp.strip()[-1] == ')': size = inp.split('(')[0] #To handle (inseam) in size
-        if self.name == 'twillory' and len(inp.split(' / ')) > 2: inp = inp.split(' / ')[0] + ' / ' + inp.split(' / ')[-1]
+        if inp.strip()[-1] == ')':
+            size = inp.split('(')[0] #To handle (inseam) in size
+        if self.name == 'twillory' and len(inp.split(' / ')) > 2:
+            inp = inp.split(' / ')[0] + ' / ' + inp.split(' / ')[-1]
         if 'O/S' in size or 'OS' in size or 'ONE SIZE' == size: return 'OS'
         elif 'XS' == size or 'XSMALL' == size: return 'XS'
         elif 'S' == size or 'SMALL' == size: return 'S'
@@ -255,7 +262,7 @@ class Shopify():
         out2 = any(map(lambda x: ('women' in x) and 'men' not in x, self.d['tags'])) or 'women' in self.d['handle'] or 'women' in self.d['product_type'] or 'women' in self.d['title'] or 'gender womens' in self.d['tags']
         if out2: self.reason['Women product'] += 1
         out3 = self.d['tags'] == []
-        if self.name == 'manscaped': out3 = False
+        if self.name == 'manscaped' or self.name == 'jackhenry' or self.name == 'supply': out3 = False
         if out3: self.reason['Tags empty'] += 1
         return (out or out1 or out2 or out3), self.reason
 
