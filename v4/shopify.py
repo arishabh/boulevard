@@ -21,8 +21,7 @@ options_debug = True
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
         self.note = 'Now collections add all tags if there in multiple collections'
-        if note:
-            self.note += '\n' + note
+        if note: self.note += '\n' + note
         self.name = name
         self.dname = display_name
         self.cats = cats
