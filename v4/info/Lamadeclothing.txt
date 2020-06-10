@@ -21,5 +21,3 @@ Added display name for vendor and collection
 Total products: 9/17
 Total Time: 0.87s
 {'"Gift" in product': 0, 'Sold out': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 8}
-
-

@@ -16,6 +16,7 @@ import urllib.request
 
 sizes_debug = True
 options_debug = True
+tags_exceptions = []
 
 
 class Shopify():
