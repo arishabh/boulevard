@@ -16,8 +16,7 @@ import urllib.request
 
 sizes_debug = True
 options_debug = True
-tags_exceptions = []
-
+tags_exceptions = ['manscaped', 'supply', 'jackhenry', 'luminskin']
 
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
@@ -262,7 +261,7 @@ class Shopify():
         out2 = any(map(lambda x: ('women' in x) and 'men' not in x, self.d['tags'])) or 'women' in self.d['handle'] or 'women' in self.d['product_type'] or 'women' in self.d['title'] or 'gender womens' in self.d['tags']
         if out2: self.reason['Women product'] += 1
         out3 = self.d['tags'] == []
-        if self.name == 'manscaped' or self.name == 'jackhenry' or self.name == 'supply': out3 = False
+        if self.name in tags_exceptions: out3 = False
         if out3: self.reason['Tags empty'] += 1
         return (out or out1 or out2 or out3), self.reason
 
