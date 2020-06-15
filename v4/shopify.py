@@ -16,7 +16,7 @@ import urllib.request
 
 sizes_debug = True
 options_debug = True
-tags_exceptions = ['manscaped', 'supply', 'jackhenry', 'luminskin']
+tags_exceptions = ['manscaped', 'supply', 'jackhenry', 'luminskin', 'drinkhydrant']
 
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
@@ -102,7 +102,7 @@ class Shopify():
         inseam = []
         title = []
         for option in self.d['options']:
-            if (option['name'].lower() == 'color' or option['name'] == 'Colour' or option['name'].lower() == 'colors'):
+            if (option['name'].lower() == 'color' or option['name'] == 'Colour' or option['name'].lower() == 'colors' or 'Flavor' == option['name']):
                 self.colors = option['values']
             elif ('size' in option['name'].lower()):
                 self.all_sizes = option['values']
@@ -120,6 +120,7 @@ class Shopify():
                     title = option['values']
             else:
                 if options_debug: print("Couldnt find list for option", option['name'], "with info", option['values'])
+        print('aaaaa', self.colors, self.all_sizes)
         if inseam and length: 
             if options_debug: print("Inseam and Length, both have values :(")
             if options_debug: print("Inseam:", inseam, "Length:", length)
@@ -136,6 +137,7 @@ class Shopify():
         if self.all_sizes == []: self.all_sizes = ['OS']
         if ' / ' not in self.all_sizes[0]: self.all_sizes = [x.upper() for x in self.all_sizes]
         if len(self.fits) < 2: self.fits = ['']
+        print('ueahuatuhe', self.colors, self.all_sizes)
         if not self.colors: self.colors = ['']
         else:
             self.pos = {}
