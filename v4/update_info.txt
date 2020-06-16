@@ -323,3 +323,8 @@ Total time taken: 116.92632025082906 min
 Total number of files: 25
 Average time for each file: 280.62316860198973 s
 
+16/06/2020 13:05:43 ET
+Total time taken: 125.68947232564291 min
+Total number of files: 25
+Average time for each file: 301.654733581543 s
+
