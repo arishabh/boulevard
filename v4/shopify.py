@@ -16,7 +16,7 @@ import urllib.request
 
 sizes_debug = True
 options_debug = True
-tags_exceptions = ['manscaped', 'supply', 'jackhenry', 'luminskin', 'drinkhydrant']
+tags_exceptions = ['manscaped', 'supply', 'jackhenry', 'luminskin', 'drinkhydrant', 'magicmind']
 
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):

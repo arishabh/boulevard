@@ -4,7 +4,11 @@ WEB_NAME = 'jackhenry' # Website name
 DISPLAY_NAME = 'Jack Henry' 
 cats = ['hair', 'face', 'body', 'kits']
 cat_names = ['Hair', 'Face', 'Body', 'Kits']
-imgs = []
+imgs = ['https://drive.google.com/open?id=1FZrsL4sB-l5QlYDZktnJuP1i8_qxJqQm',
+ 'https://drive.google.com/open?id=1a2ixh4okYCukZfRK6Usfnlqu1cqVGkYt',
+ 'https://drive.google.com/open?id=1b3qqq8o5AUmCNlwqIQtsIjwJtZo2vDqA',
+ 'https://drive.google.com/open?id=1ysaoLFmDrGP4BGKY3UVYipdfw63HTfQx',
+ 'https://drive.google.com/open?id=1wCb0QgPrCwqcsIPyAplmZJgg94J_dIO5']
 shipping = 'Free shipping and free returns. Returns available for unworn and unused products.'
 note = 'New brand'
 

@@ -2,9 +2,12 @@ from shopify import Shopify
 
 WEB_NAME = 'drsquatch' # Website name
 DISPLAY_NAME = 'Dr. Squatch' 
-cats = ['soap-subscription', 'bar-soaps', 'hair-care', 'shower-boosters', 'colognes', 'beard', 'shave', '4-pack-hand-sanitizer', 'bay-rum-candle', 'soap-subscription', 'bundles', 'best-sellers']
+cats = ['bar-soaps', 'hair-care', 'shower-boosters', 'soap-subscription', 'colognes', 'beard', 'shave', '4-pack-hand-sanitizer', 'bay-rum-candle', 'soap-subscription', 'bundles', 'best-sellers']
 cat_names = ['Bar Soaps', 'Hair Care', 'Shower Boosters']
-imgs = []
+imgs = ['https://drive.google.com/open?id=1hPXxkQATj_ojlSCQV6QivPH-wPLmD_6F',
+ 'https://drive.google.com/open?id=1vjI_wUES6o72P8Y8Bc15lVtgG_1jVR6L',
+ 'https://drive.google.com/open?id=1gcijig1_5MWyAy_b0OwHSuF65Dfl-aQZ',
+ 'https://drive.google.com/open?id=1ZUPtzuqMN6dEkMqkmrvZrXkMlYUMkM4m']
 shipping = 'Free shipping on shopping over $40'
 note = 'New brand'
 
