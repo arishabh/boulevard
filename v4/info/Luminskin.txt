@@ -186,3 +186,27 @@ Total Time: 0.54s
 {'"Gift" in product': 16, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 4}
 
 
+17/06/2020 14:58:51
+Now collections add all tags if there in multiple collections
+New brand
+Total products: 5/25
+Total Time: 1.22s
+{'"Gift" in product': 16, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 4}
+
+
+17/06/2020 17:30:09
+Now collections add all tags if there in multiple collections
+New brand
+Total products: 5/25
+Total Time: 15.93s
+{'"Gift" in product': 16, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 4}
+
+
+18/06/2020 09:06:47
+Now collections add all tags if there in multiple collections
+New brand
+Total products: 5/25
+Total Time: 1.08s
+{'"Gift" in product': 16, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 0, 'Sold out': 4}
+
+

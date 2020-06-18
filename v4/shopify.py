@@ -14,9 +14,10 @@ import xml.etree.cElementTree as ET
 from os import path
 import urllib.request
 
-sizes_debug = True
-options_debug = True
+sizes_debug = False
+options_debug = False
 tags_exceptions = ['manscaped', 'supply', 'jackhenry', 'luminskin', 'drinkhydrant', 'magicmind']
+repeated_prods = ['featsocks', 'tenthousand', 'westernrise', 'manscaped']
 
 class Shopify():
     def __init__(self, name, display_name, cats, shipping, note=''):
@@ -120,7 +121,6 @@ class Shopify():
                     title = option['values']
             else:
                 if options_debug: print("Couldnt find list for option", option['name'], "with info", option['values'])
-        print('aaaaa', self.colors, self.all_sizes)
         if inseam and length: 
             if options_debug: print("Inseam and Length, both have values :(")
             if options_debug: print("Inseam:", inseam, "Length:", length)
@@ -137,7 +137,6 @@ class Shopify():
         if self.all_sizes == []: self.all_sizes = ['OS']
         if ' / ' not in self.all_sizes[0]: self.all_sizes = [x.upper() for x in self.all_sizes]
         if len(self.fits) < 2: self.fits = ['']
-        print('ueahuatuhe', self.colors, self.all_sizes)
         if not self.colors: self.colors = ['']
         else:
             self.pos = {}
@@ -145,7 +144,7 @@ class Shopify():
             for v in self.d['variants']:
                 try: color = list(filter(lambda x: x in v['title'], self.colors))[0]
                 except: continue
-                if v['featured_image'] == None:
+                if v.get('featured_image', None) == None:
                     self.pos[color] = [0]
                     continue
                 if v['featured_image']['position'] not in self.pos[color]:
@@ -195,7 +194,7 @@ class Shopify():
                     if not size: continue
                     if size != 'OS': size = size[-1]
                     if size not in self.avail_sizes: 
-                        if fit: self.avail_sizes[size + ' - ' + fit] = [v['available'], v['id']]
+                        if fit: self.avail_sizes[size + ' - ' + fit] = [v.get('available', False), v['id']]
                         else: 
                             try:
                                 self.avail_sizes[size] = [v['available'], v['id']]
@@ -285,7 +284,9 @@ class Shopify():
         # print(a.content)
         if self.cats == ['']: return
         for i,n in enumerate(names):
-            c = gen_clean(self.cats[i])
+            c = self.cats[i]
+            if c[-2:] == '-P': c = c[:-2]
+            c = gen_clean(c)
             image = self.img_finder(c)
             if not image: 
                 print("No images for", c)
@@ -315,7 +316,7 @@ class Shopify():
             self.prods[self.prods.index(self.prod)].tags.append(gen_clean(self.c))
             self.reason['Repeated product'] += 1
             return True
-        if ((self.name == 'featsocks' or self.name == 'tenthousand' or self.name == 'westernrise') and [a for a in self.prods if a.title==self.prod.title]): 
+        if (self.name in repeated_prods and [a for a in self.prods if a.title==self.prod.title]): 
             self.reason['Repeated product'] += 1
             return True
         if not self.prod.img_urls: 

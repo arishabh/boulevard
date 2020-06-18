@@ -9,8 +9,7 @@ shipping = ''
 note = 'New brand'
 
 brand = Shopify(WEB_NAME, DISPLAY_NAME, cats, shipping, note)
-brand.url[0] = 'https://magicmind.co'
-brand.link = brand.url[0]+'/'
+brand.url[0] = 'https://magicmind.co/'
 brand.run()
 brand.write_csv()
 brand.write_info()
