@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 WEB_NAME = 'wolfandshepherd' # Website name
-DISPLAY_NAME = 'Wolf & Shepherd' 
+DISPLAY_NAME = 'Wolf & Shepherd - Apparel'
 cats = ['dress-shoes', 'hybrids', 'drivers', 'sneakers', 'sale', 'accessories', 'lace-ups', 'slip-ons', 'monk-straps', 'sneakers', 'hybrids', 'boots', 'dress-socks', 'ws-belts']
 cat_names = ['Dress Shoes', 'Hybrid Shoes', 'Drivers', 'Sneakers', 'Sale']
 imgs = ['https://drive.google.com/uc?export=download&id=1PvbG--dpJmoeUkD_mXltfnlbzE5nOlKr',

@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 NAME = 'ledbury'
-DISPLAY_NAME = 'Ledbury'
+DISPLAY_NAME = 'Ledbury - Apparel'
 cats = ['new-shirts', 'dress-shirts', 'business-casual', 'casual-sport', 'sunday-shirting', 'all-clothing', 'blazers', 'sweaters', 'pants', 'ties', 'cold-weather-accessories', 'collar-stays', 'cufflinks-studs', 'pocket-squares', 'the-tuxedo-capsule']
 cat_names = ['New Shirts', 'Dress Shirts', 'Busienss Casual', 'Casual + Sport', 'Sunday Shirting', 'All Clothing', 'Sports Coats', 'Sweaters + Knits', 'Pants']
 shipping = 'Free shipping and returns for all orders above $125'

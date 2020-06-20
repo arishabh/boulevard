@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 WEB_NAME = 'rhythmlivin' # Website name
-DISPLAY_NAME = 'Rhythm' 
+DISPLAY_NAME = 'Rhythm - Apparel'
 cats = ['mens-new-arrivals', 'mens-top-sellers', 'mens-t-shirts', 'mens-shorts', 'mens-trunks', 'mens-woven-shirts', 'mens-knits', 'mens-bottoms', 'mens-jackets', 'vintage-tees', 'mens-linen',  'mens-fleece', 'boys-clothing', 'mens-sale', 'mens-accessories', 'mens-bags', 'mens-headwear', 'mens-sunglasses', 'mens-wallets', 'mens-sale-accessories', 'surf-lifestyle', 'beach-essentials', 'rhythm-x-klean-kanteen', 'mens-grooming', 'surfboards', 'suncare', 'surf-goods', 'rhythm-wetsuits', 'mens-jan20-collection']
 cat_names = ['New Arrivals', 'Top Sellers', 'T-Shirts', 'Shorts', 'Trunks', 'Woven Shirts', 'Knits', 'Pants', 'Jackets']
 imgs = ['https://drive.google.com/uc?export=download&id=17byA-Q2JaixUHYoP6UFdkFFgJn6QwiRR',

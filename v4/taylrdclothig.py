@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 NAME = 'taylrdclothing'
-DISPLAY_NAME = 'Taylrd'
+DISPLAY_NAME = 'Taylrd - Apparel'
 cats = ['new-arrivals', 'bottoms', 'tops', 'long-sleeve-button-downs', 'short-sleeve', 'henleys-and-tees', 'hoodies-and-jackets', 'all-chinos', 'joggers', 'shorts', '5-pockets', 'final-sale', 'brushed-button-downs', 'disposable-medical-mask-50-count-P']
 cat_names = ['New Arrivals', 'Bottoms ', 'Tops', 'L/S Button Downs', 'S/S Buttondowns', 'Henleys & Tees', 'Hoodies & Jackets', 'Chinos', 'Joggers', 'Shorts', '5 Pocket Pants', 'Final Sale']
 shipping = 'Free standard shipping and return over $75. Free Express shipping over $150'

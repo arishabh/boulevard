@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 WEB_NAME = 'imperialmotion' # Website name
-DISPLAY_NAME = 'Imperial Motion' 
+DISPLAY_NAME = 'Imperial Motion - Apparel'
 cats = ['tub-shorts', 'mens-boardshorts', 'mens-shorts', 'mens-pants', 'mens-tees-and-tanks', 'knits', 'shirts', 'sweatshirts', 'mens-jackets', 'mens-bottoms', 'liberty-chino-pant-faded-black', 'boxer-briefs',  'mens-wetsuits', 'mens-wetsuits', 'wetsuit-accessories', 'lux-wetsuit', 'accessories', 'backpacks-and-bags', 'hats', 'beanies', 'socks', 'boxer-briefs', 'always-evolving', 'always-evolving', 'control-freak', 'ghost-reflective', 'reflective', 'nano-cure-tech', 'mens-tops']
 cat_names = ['Seeker Volley Shorts', 'Boardshorts', 'Shorts', 'Pants', 'Tees & Tanks', 'Knits', 'Shirts', 'Sweatshirts/Fleece', 'Jackets']
 imgs = ['https://drive.google.com/uc?export=download&id=1Wu2N-PMkvHBBjoWw1w4-RIKSvhLAvL6D',

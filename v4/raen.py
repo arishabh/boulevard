@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 NAME = 'raen'
-DISPLAY_NAME = 'Raen'
+DISPLAY_NAME = 'Raen - Apparel'
 cats = ['sunglasses', 'eyeglasses']
 shipping = 'Free returns + 2 day shipping on U.S. orders $150+'
 note = 'Have to do collections by yourself'

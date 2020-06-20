@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 NAME = 'featsocks'
-DISPLAY_NAME = 'Feat'
+DISPLAY_NAME = 'Feat - Apparel'
 cats = ['blanketblend', 'socks', 'crewnecks']
 cat_names = ['BlanketBlend', 'Socks', 'Crewnecks']
 shipping = 'Free shipping and returns for orders above $75'

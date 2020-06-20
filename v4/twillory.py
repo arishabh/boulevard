@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 NAME = 'twillory'
-DISPLAY_NAME = 'Twillory'
+DISPLAY_NAME = 'Twillory - Apparel'
 cats = ['shirts', 'performance', 'safecotton', 'untuckables', 'performance-pants', 'accessories', 'undertwills', 'socks', 'collar-stays', 'scarves', 'sunglasses', 'ties']
 cat_names = ['All Shirts', 'Performance', 'SafeCotton', 'Untuck(able)', 'Pants', 'Accessories', 'underTwills']
 shipping = 'Free US Shipping & Returns'

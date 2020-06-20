@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 NAME = 'katinusa'
-DISPLAY_NAME = 'Katin'
+DISPLAY_NAME = 'Katin - Apparel'
 cats = ['trunks-1', 'bottoms', 'tops', 'accessories']
 cat_names = ['Trunks', 'Bottoms', 'Tops', 'Accessories']
 shipping = 'For up to 30 days, we’ll gladly accept unworn, unwashed, or defective merchandise purchased on katinusa.com for return or exchange.'

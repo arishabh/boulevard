@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 NAME = 'cutsclothing'
-DISPLAY_NAME = 'Cuts'
+DISPLAY_NAME = 'Cuts - Apparel'
 cats = ['crew-neck', 'v-neck', 'henley', 'classic', 'split-hem', 'elongated', 'bestsellers', 'new-releases', 'fall-2019', 'long-sleeve', 'polos']
 cat_names = ['Crew Neck', 'V-Neck', 'Henley', 'Classic Cut', 'Split Hem', 'Elongated']
 shipping = 'Free U.S. Shipping & Returns Over $100 | Free International Shipping Over $150'

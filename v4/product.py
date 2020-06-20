@@ -2,7 +2,8 @@ import re
 import json
 
 class Product:
-    def __init__(self, d='', c='', name='', display_name='', url = ''):
+    def __init__(self, d='', c='', name='', display_name='', url = '', industry=''):
+        self.industry = industry
         self.collection = ''
         self.handle = ''
         self.title = ''
@@ -58,7 +59,7 @@ class Product:
             self.img_urls = [img['src'] for img in d['images']]
             self.img_pos = [img['position'] for img in d['images']]
             
-            self.tags = [gen_clean(d['vendor']), gen_clean(c)] + gen_clean_li(d['tags'])
+            self.tags = [self.industry, gen_clean(d['vendor']), gen_clean(c)] + gen_clean_li(d['tags'])
 
     def get_first_row(self):
         tags = ', '.join(self.tags)

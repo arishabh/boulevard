@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 NAME = 'tenthousand'
-DISPLAY_NAME = 'Ten Thousand'
+DISPLAY_NAME = 'Ten Thousand - Apparel'
 cats = ['']
 shipping = 'Free shipping. Free returns'
 note = 'Changed the URl (with https)'

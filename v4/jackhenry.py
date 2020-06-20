@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 WEB_NAME = 'jackhenry' # Website name
-DISPLAY_NAME = 'Jack Henry' 
+DISPLAY_NAME = 'Jack Henry - Grooming'
 cats = ['hair', 'face', 'body', 'kits']
 cat_names = ['Hair', 'Face', 'Body', 'Kits']
 imgs = ['https://drive.google.com/uc?export=download&id=1FZrsL4sB-l5QlYDZktnJuP1i8_qxJqQm',

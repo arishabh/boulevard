@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 WEB_NAME = 'drinkhydrant' # Website name
-DISPLAY_NAME = 'Hydrant'
+DISPLAY_NAME = 'Hydrant - Health and Wellness'
 cats = ['']
 cat_names = []
 imgs = []

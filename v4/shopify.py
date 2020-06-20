@@ -24,7 +24,8 @@ class Shopify():
         self.note = 'Now collections add all tags if there in multiple collections'
         if note: self.note += '\n' + note
         self.name = name
-        self.dname = display_name
+        self.dname = display_name.split(' - ')[0]
+        self.industry = "industry:" + display_name.split(' - ')[1]
         self.cats = cats
         self.shipping = shipping
         self.size = 'Click buy for more sizing information.'
@@ -69,7 +70,7 @@ class Shopify():
                     for color in self.colors:
                         if color != '' and self.pos[color] == [0]:
                             continue
-                        self.prod = Product(self.d, self.c, self.name, self.dname, self.link)
+                        self.prod = Product(self.d, self.c, self.name, self.dname, self.link, self.industry)
 
                         if color is not '': self.add_color(color)
 

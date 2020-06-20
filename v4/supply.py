@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 WEB_NAME = 'supply'  # Website name
-DISPLAY_NAME = 'Supply'
+DISPLAY_NAME = 'Supply - Grooming'
 cats = ['the-single-edge-razor-P', 'grooming-essentials', 'skincare', 'accessories', 'the-single-edge-starter-set', 'fathers-day-shaving-gift-set']
 cat_names = ['Razors', 'Grooming essentials', 'Skin Essentials', 'Blades and accesories']
 imgs = ['https://drive.google.com/uc?export=download&id=1H8UNVhHSD1Mad3EvREQiBd9b-1F_BsxE',

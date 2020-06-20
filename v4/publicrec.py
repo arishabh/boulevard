@@ -1,7 +1,7 @@
 from shopify import Shopify
 
 NAME = 'publicrec'  # e.g. onlyny | Has to be the same as on url (lowercase)
-DISPLAY_NAME = 'Public Rec'
+DISPLAY_NAME = 'Public Rec - Apparel'
 cats = ['bottoms-pants', 'bottoms-shorts', 'tops-t-shirts', 'tops-henleys', 'tops-polos', 'layers-jackets']
 cat_names = ['Pants', 'Shorts', 'T-Shirts', 'Henleys', 'Polos', 'Jackets']
 shipping = 'Free shipping, free returns, free exchnages'
