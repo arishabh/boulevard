@@ -16,7 +16,7 @@ import urllib.request
 
 sizes_debug = False
 options_debug = False
-tags_exceptions = ['manscaped', 'supply', 'jackhenry', 'luminskin', 'drinkhydrant', 'magicmind']
+tags_exceptions = ['manscaped', 'supply', 'jackhenry', 'luminskin', 'drinkhydrant', 'magicmind', 'blackwolfnation']
 repeated_prods = ['featsocks', 'tenthousand', 'westernrise', 'manscaped']
 color_options = ['color', 'colour', 'type', 'deodorant type']
 size_options = ['size', 'flavor', 'scent']
