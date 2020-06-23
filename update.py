@@ -14,10 +14,6 @@ old_path = os.path.dirname(os.path.abspath(__file__)) + '/old/'
 new_path = os.path.dirname(os.path.abspath(__file__)) + '/new/'
 print(sys.argv)
 run = '-nr' not in sys.argv
-post_collections = '-pc' in sys.argv or '--post-collections' in sys.argv
-git_pull = '-gp' in sys.argv
-
-
 
 def csv_diff(old_csv, new_csv):
     new_prod = []
@@ -108,7 +104,7 @@ def publish_prod(prod):
     if "error" in str(res): print("Couldn't product product with title", data['product']['title'])
 
 def write_file(duration, files):
-    with open(os.path.dirname(os.path.abspath(__file__))+"/update_info.txt", "a+") as f:
+    with open(os.path.dirname(os.path.abspath(__file__))+"info/update_info.txt", "a+") as f:
         f.write(str((datetime.now()-timedelta(hours=-4)).strftime("%d/%m/%Y %H:%M:%S"))+" ET\n")
         f.write("Total time taken: " + str(duration/60) + ' min' + '\n')
         f.write("Total number of files: " + str(files) + "\n")
