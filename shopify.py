@@ -14,8 +14,8 @@ import xml.etree.cElementTree as ET
 from os import path
 import urllib.request
 
-sizes_debug = True
-options_debug = True
+sizes_debug = False
+options_debug = False
 tags_exceptions = ['manscaped', 'supply', 'jackhenry', 'luminskin', 'drinkhydrant', 'magicmind']
 repeated_prods = ['featsocks', 'tenthousand', 'westernrise', 'manscaped']
 color_options = ['color', 'colour', 'type', 'deodorant type']
