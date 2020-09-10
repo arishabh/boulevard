@@ -1417,3 +1417,11 @@ Total Time: 5.61s
 {'"Gift" in product': 4, 'No images': 1, 'Tags empty': 1, 'Women product': 0, 'Repeated product': 201, 'Sold out': 289}
 
 
+10/09/2020 07:11:36
+Now collections add all tags if there in multiple collections
+Added display name for vendor and collection
+Total products: 337/832
+Total Time: 32.78s
+{'"Gift" in product': 4, 'No images': 1, 'Tags empty': 1, 'Women product': 0, 'Repeated product': 207, 'Sold out': 282}
+
+
