@@ -1732,3 +1732,11 @@ Total Time: 10.4s
 {'"Gift" in product': 12, 'No images': 13, 'Tags empty': 6, 'Women product': 0, 'Repeated product': 23, 'Sold out': 91}
 
 
+19/09/2020 07:00:12
+Now collections add all tags if there in multiple collections
+Changed the URl (with https)
+Total products: 71/216
+Total Time: 10.04s
+{'"Gift" in product': 12, 'No images': 13, 'Tags empty': 6, 'Women product': 0, 'Repeated product': 23, 'Sold out': 91}
+
+
