@@ -2174,3 +2174,11 @@ Total Time: 33.96s
 {'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 2, 'Repeated product': 21, 'Sold out': 13}
 
 
+30/10/2020 07:04:53
+Now collections add all tags if there in multiple collections
+Final upload time
+Total products: 601/637
+Total Time: 32.65s
+{'"Gift" in product': 0, 'No images': 0, 'Tags empty': 0, 'Women product': 2, 'Repeated product': 21, 'Sold out': 13}
+
+
