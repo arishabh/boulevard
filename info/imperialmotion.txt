@@ -1331,3 +1331,11 @@ Total Time: 65.82s
 {'"Gift" in product': 0, 'No images': 2, 'Tags empty': 0, 'Women product': 10, 'Repeated product': 417, 'Sold out': 23}
 
 
+31/10/2020 07:07:07
+Now collections add all tags if there in multiple collections
+New brand
+Total products: 340/792
+Total Time: 72.24s
+{'"Gift" in product': 0, 'No images': 2, 'Tags empty': 0, 'Women product': 10, 'Repeated product': 417, 'Sold out': 23}
+
+
