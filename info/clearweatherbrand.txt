@@ -1944,3 +1944,11 @@ Total Time: 16.43s
 {'"Gift" in product': 3, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 125, 'Sold out': 0}
 
 
+05/11/2020 07:02:01
+Now collections add all tags if there in multiple collections
+Have to do the categories by myself
+Total products: 94/228
+Total Time: 24.0s
+{'"Gift" in product': 3, 'No images': 0, 'Tags empty': 0, 'Women product': 0, 'Repeated product': 131, 'Sold out': 0}
+
+
